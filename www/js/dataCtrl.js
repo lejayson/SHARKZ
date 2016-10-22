@@ -6,17 +6,12 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
 	// listen for the $ionicView.enter event:
 	//$scope.$on('$ionicView.enter', function(e) {
 	//});
-  $scope.asicount = 0;
-  $scope.afrcount = 0;
-  $scope.caucount = 0;
-  $scope.paccount = 0;
-  $scope.natcount = 0;
   
 	$scope.globalref = firebase.database().ref().child("global");
-
+  
 	$scope.myData = $firebaseArray($scope.globalref);
   
-  $scope.countEthnicities = function() {
+  $scope.countData = function() {
     $scope.tmpasicount = 0;
     $scope.tmpafrcount = 0;
     $scope.tmpcaucount = 0;
@@ -26,6 +21,20 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
     $scope.tmpmale = 0;
     $scope.tmpfemale = 0;
     $scope.tmpothergend = 0;
+    
+    $scope.tmparmycount = 0;
+    $scope.tmpairfcount = 0;
+    $scope.tmpnavycount = 0;
+    $scope.tmpmarinecount = 0;
+    $scope.tmpcoastgcount = 0;
+    $scope.tmpothermilcount = 0;
+    
+    $scope.tmpvet = 0;
+    $scope.tmpnovet = 0;
+    
+    $scope.excldata = 0;
+    $scope.gooddata = 0;
+    $scope.poordata = 0;
     
     $scope.myData.forEach(function(item) {
       if (item.Asian === 1) {
@@ -51,6 +60,38 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
       } else {
         $scope.tmpothergend++;
       }
+      
+      if (item.VeteranStatus === 1) {
+        $scope.tmpvet++;
+        
+        var mil = item.MilitaryBranch;
+        if (mil === 1) {
+          $scope.tmparmycount++;
+        } else if (mil === 2) {
+          $scope.tmpairfcount++;
+        } else if (mil === 3) {
+          $scope.tmpnavycount++;
+        } else if (mil === 4) {
+          $scope.tmpmarinecount++;
+        } else if (mil === 6) {
+          $scope.tmpcoastgcount++;
+        } else {
+          $scope.tmpothermilcount++;
+        }
+        
+      } else {
+        $scope.tmpnovet++;
+      }
+      
+      var dataqual = item.DOBDataQuality + item.Name_Data_Quality + item.SSNDataQuality;
+
+      if (dataqual == 3) {
+        $scope.excldata++;
+      } else if (dataqual > 5 && dataqual < 16) {
+        $scope.gooddata++;
+      } else {
+        $scope.poordata++;
+      }
     });
     
     var newEthnData = [{
@@ -73,41 +114,61 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
     
     var newGendData = [{label: "Male", value: $scope.tmpmale},{label: "Female", value: $scope.tmpfemale},{label: "Other", value: $scope.tmpothergend}];
     
-    $scope.graphone.setData(newEthnData);
-    $scope.graphtwo.setData(newGendData);
+    var newMilData = [
+      {label: "Army", value: $scope.tmparmycount},
+      {label: "Air Force", value: $scope.tmpairfcount},
+      {label: "Navy", value: $scope.tmpnavycount},
+      {label: "Marines", value: $scope.tmpmarinecount},
+      {label: "Coast Guard", value: $scope.tmpcoastgcount},
+      {label: "Undisclosed", value: $scope.tmpothermilcount}
+    ];
+    
+    var newVetData = [{label: "Veteran", value: $scope.tmpvet},{label: "Non-Veteran", value: $scope.tmpnovet}];
+    
+    var newQualData = [
+      {label: "Excellent", value: $scope.excldata},
+      {label: "Good", value: $scope.gooddata},
+      {label: "Poor", value: $scope.poordata}
+    ];
+    
+    $scope.grapheth.setData(newEthnData);
+    $scope.graphgend.setData(newGendData);
+    $scope.graphmil.setData(newMilData);
+    $scope.graphvet.setData(newVetData);
+    $scope.graphqual.setData(newQualData);
   };
   
   $scope.$watch("myData", function(newValue, oldValue) {
     $scope.myData = newValue;
-    $scope.countEthnicities();
+    $scope.countData();
   }, true);
 
 	$scope.myData.$loaded().then(function (globaldata) {
     
-		var dataone = [{
+		var dataeth = [{
 				label : "Asian",
-				value : $scope.asicount
+				value : 1
 			}, {
 				label : "African",
-				value : $scope.afrcount
+				value : 1
 			}, {
 				label : "Caucasian",
-				value : $scope.caucount
+				value : 1
 			}, {
 				label : "Pacific Islander",
-				value : $scope.paccount
+				value : 1
 			}, {
 				label : "Native American",
-				value : $scope.natcount
+				value : 1
 			}
 		];
 
-		$scope.graphone = new Morris.Donut({
+		$scope.grapheth = new Morris.Donut({
       element : 'chartone',
-      data : dataone
+      data : dataeth
     });
 
-		var datatwo = [{
+		var datagend = [{
       label : 'male',
       value : 1
     }, {
@@ -115,37 +176,51 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
       value : 1
     }];
 
-		$scope.graphtwo = new Morris.Donut({
+		$scope.graphgend = new Morris.Donut({
       element : 'charttwo',
-      data : datatwo
+      data : datagend
     });
 
-		var datathree = [{
-      name : 0,
-      number : 1
+		var datamil = [{
+      label : "test",
+      value : 1
     }];
 
-		var graphthree = new Morris.Bar({
+		$scope.graphmil = new Morris.Bar({
       element : 'chartthree',
-      data : datathree,
-      xkey : 'name',
-      ykeys : ['number'],
-      labels : ['val'],
-      hideHover : 'always'
+      data : datamil,
+      xkey : 'label',
+      ykeys : ['value'],
+      labels : ['number'],
+      hideHover : true
     });
 
-		var datafour = [{
-      name : 0,
-      number : 1
+		var datavet = [{
+      label : "test",
+      value : 1
     }];
 
-		var graphfour = new Morris.Bar({
-      element : 'chartthree',
-      data : datafour,
-      xkey : 'name',
-      ykeys : ['number'],
-      labels : ['val'],
-      hideHover : 'always'
+		$scope.graphvet = new Morris.Donut({
+      element : 'chartfour',
+      data : datavet,
+      xkey : 'label',
+      ykeys : ['value'],
+      labels : ['status'],
+      hideHover : true
+    });
+    
+    var dataqual = [{
+      label : "test",
+      value : 1
+    }];
+    
+    $scope.graphqual = new Morris.Bar({
+      element: 'chartfive',
+      data: dataqual,
+      xkey: 'label',
+      ykeys: ['value'],
+      labels: ['quality'],
+      hideHover: true
     });
 
 	});
