@@ -1,9 +1,24 @@
-<ion-view view-title="Data Analysis">
-  <ion-content>
-    <div id="chartone"></div>
-    
-    <div id="charttwo"></div>
-    
-    <div id="chartthree"></div>
-  </ion-content>
-</ion-view>
+<div class="home datavisual container" ng-controller="dataCtrl" style="overflow:scroll;">
+<div>
+  <div class="agency-half"><span class="data-header">{{myData.length}}</span>Open</div>
+  <div class="agency-half"><span class="data-header">{{500 - myData.length}}</span> Completed</div>
+</div>
+  <div class="row1 graphs">
+    <div id="chartone" class="halfwidth"></div>
+
+    <div id="charttwo" class="halfwidth"></div>
+  </div>
+
+
+  <div id="chartfour" class="smallergraph"></div>
+
+  <div class="row2 graphs">
+    <div id="chartthree" class="fullwidth"></div>
+  </div>
+
+  <div class="row2 graphs">
+    <div id="chartfive" class="fullwidth"></div>
+  </div>
+
+
+</div>
