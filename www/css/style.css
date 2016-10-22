@@ -13,7 +13,7 @@
     top: 100px;
 }
 
-ion-item.item.item-complex {
+.lsidemenu > .list > ion-item.item.item-complex {
     border-color: #6fb272;
     padding-top: 5px;
     padding-bottom: 5px;
