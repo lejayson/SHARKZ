@@ -1,25 +1,32 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
+<ion-view hide-nav-bar="true">
+<!--
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+    <div class="tabs">
+      <a ng-repeat="button in buttons" ng-class="{'active': $index === current}" ng-click="slide($index)" class="tab-item">{{ button.name }}</a>
+
     </div>
-  </ion-header-bar>
-  <ion-content>
-    <form ng-submit="doLogin()">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
-        </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
+  </div>
+-->
+  <ion-pane>
+
+      <ion-content class="loginpage" scroll="false">
+        <div class="container logincon">
+          <span class="loginwelcome">Welcome</span>
+        <form ng-submit="doLogin()">
+          <div class="list">
+            <label class="item item-input login">
+              <span class="input-label login">Username</span>
+              <input type="text" ng-model="loginData.username">
+            </label>
+            <label class="item item-input login">
+              <span class="input-label login">Password</span>
+              <input type="password" ng-model="loginData.password">
+            </label>
+              <button class="button button-block login" type="submit">Log in</button>
+          </div>
+        </form>
       </div>
-    </form>
-  </ion-content>
-</ion-modal-view>
+      </ion-content>
+
+  </ion-pane>
+</ion-view>

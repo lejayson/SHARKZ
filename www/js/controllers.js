@@ -12,22 +12,6 @@ angular.module('starter.controllers', [])
   // Form data for the login modal
   $scope.loginData = {};
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('pages/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function() {
@@ -54,6 +38,25 @@ angular.module('starter.controllers', [])
     name: 'Completed'
   }, {
     name: 'Closed'
+  }];
+
+  $scope.slide = function($index) {
+    $scope.current = $index;
+    $ionicSlideBoxDelegate.slide($index);
+  }
+
+})
+
+.controller('homeCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
+
+  $scope.open = function() {
+    $state.go('tabs.home', {});
+  };
+
+  $scope.buttons = [{
+    name: 'AGENCY'
+  }, {
+    name: 'HMIS'
   }];
 
   $scope.slide = function($index) {
