@@ -6,8 +6,8 @@
     <ion-nav-back-button></ion-nav-back-button>
   </ion-nav-bar>
 
-  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
-    <div class="tabs">
+  <div class="tabs-top tabs-background-positive tabs-color-light">
+    <div class="tabs hometabs">
       <a ng-repeat="button in buttons" ng-class="{'active': $index === current}" ng-click="slide($index)" class="tab-item">{{ button.name }}</a>
 
     </div>
@@ -24,80 +24,42 @@
 
             <div class="agencyhome">
 
-              <div class="home datavisual container" ng-controller="agencyDataCtrl" style="overflow:scroll;">
-
-                <div>
-                <div class="agency-half"><span class="data-header">{{agencyCases}}</span>Open Cases</div>
-                <div class="agency-half"><span class="data-header">{{myData.length - agencyCases}}</span> Completed</div>
-
+              <ion-content scroll="true" class="agency-content">
+              <div class="agency-content">
+                <div class="agency-image">
+                  <img class="agency-image2" src="img\header.jpg">
+                </div>
               </div>
-                <div class="row1 graphs">
-                  <div id="achartone" class="halfwidth"></div>
 
-                  <div id="acharttwo" class="halfwidth"></div>
-                </div>
+              <div class="container">
 
-
-                <div id="achartfour" class="smallergraph"></div>
-
-                <div class="row2 graphs">
-                  <div id="achartthree" class="fullwidth"></div>
-                </div>
-
-                <div class="row2 graphs">
-                  <div id="achartfive" class="fullwidth"></div>
-                </div>
-
+                test
 
               </div>
 
+            </ion-content>
 
-
-
+<ion-content class="agency-buttons5" scroll="false">
               <div class="home createnew"><a ng-href="#/app/agency/newentry" class="home center">Create New Client</a></div>
-              <div class="home button-bar">
-                <a class="button" ng-href="#/app/agency/allclients">View Clients</a>
-                <a class="button">Assign Services</a>
-              </div>
+              <div class="home viewclients"><a ng-href="#/app/agency/allclients" class="home center">View Clients</a></div>
+              <div class="home agencystatus"><a ng-href="#/app/agency/newentry" class="home center">Agency Status</a></div>
+              <div class="home datareports"><a ng-href="#/app/agency/newentry" class="home center">Data Reports</a></div>
+</ion-content>
             </div>
           </ion-slide>
 
           <ion-slide>
 
             <div class="agencyhome">
-
-              <div class="home datavisual container" ng-controller="dataCtrl" style="overflow:scroll;">
-                <div>
-                <div class="agency-half"><span class="data-header">{{myData.length}}</span>Open</div>
-                <div class="agency-half"><span class="data-header">{{500 - myData.length}}</span> Completed</div>
-              </div>
-                <div class="row1 graphs">
-                  <div id="chartone" class="halfwidth"></div>
-
-                  <div id="charttwo" class="halfwidth"></div>
-                </div>
-
-
-                <div id="chartfour" class="smallergraph"></div>
-
-                <div class="row2 graphs">
-                  <div id="chartthree" class="fullwidth"></div>
-                </div>
-
-                <div class="row2 graphs">
-                  <div id="chartfive" class="fullwidth"></div>
-                </div>
-
-
+              <div class="hmis-content">
+                Content
               </div>
 
-
-              <div class="button home createnew"><a class="home center">Functional Zero</a></div>
-              <div class="home button-bar">
-                <a class="button" href="#/app/agency/allclients">View Clients</a>
-                <a class="button">Assign Services</a>
-              </div>
-
+              <ion-content class="agency-buttons2" scroll="false">
+                            <div class="home createnew"><a ng-href="#/app/agency/newentry" class="home center">Functional 0</a></div>
+                            <div class="home viewclients"><a ng-href="#/app/agency/allclients" class="home center">View Clients</a></div>
+                            <div class="home agencystatus"><a ng-href="#/app/agency/newentry" class="home center">Agency Status</a></div>
+              </ion-content>
 
 
             </div>
