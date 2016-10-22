@@ -23,20 +23,36 @@
 
 
             <div class="agencyhome">
+
               <div class="home datavisual container" ng-controller="agencyDataCtrl" style="overflow:scroll;">
-                <div id="achartone"></div>
 
-                <div id="acharttwo"></div>
+                <div>
+                <div class="agency-half"><span class="data-header">{{agencyCases}}</span>Open Cases</div>
+                <div class="agency-half"><span class="data-header">{{myData.length - agencyCases}}</span> Completed</div>
 
-                <div id="achartthree"></div>
-
-                <div id="achartfour"></div>
-
-                <div id="achartfive"></div>
-
-                <div style="background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.02, #f2f), color-stop(0.04, #22f), color-stop(0.06, #2ff), color-stop(0.08, #2f2),color-stop(0.1, #2f2), color-stop(0.12, #ff2), color-stop(0.14, #f22) );;color:transparent;-webkit-background-clip: text;">Open Cases {{agencyCases}}</div>
-                <div style="background-image: -webkit-gradient( linear, left top, right top, color-stop(0.14, #f22), color-stop(0.12, #f2f), color-stop(0.1, #22f), color-stop(0.08, #2ff), color-stop(0.06, #2f2),color-stop(0.04, #2f2), color-stop(0.02, #ff2), color-stop(0, #f22) );;color:transparent;-webkit-background-clip: text;">Other Agencies' Cases {{myData.length - agencyCases}}</div>
               </div>
+                <div class="row1 graphs">
+                  <div id="achartone" class="halfwidth"></div>
+
+                  <div id="acharttwo" class="halfwidth"></div>
+                </div>
+
+
+                <div id="achartfour" class="smallergraph"></div>
+
+                <div class="row2 graphs">
+                  <div id="achartthree" class="fullwidth"></div>
+                </div>
+
+                <div class="row2 graphs">
+                  <div id="achartfive" class="fullwidth"></div>
+                </div>
+
+
+              </div>
+
+
+
 
               <div class="home createnew"><a ng-href="#/app/agency/newentry" class="home center">Create New Client</a></div>
               <div class="home button-bar">
@@ -51,6 +67,10 @@
             <div class="agencyhome">
 
               <div class="home datavisual container" ng-controller="dataCtrl" style="overflow:scroll;">
+                <div>
+                <div class="agency-half"><span class="data-header">{{myData.length}}</span>Open</div>
+                <div class="agency-half"><span class="data-header">{{500 - myData.length}}</span> Completed</div>
+              </div>
                 <div class="row1 graphs">
                   <div id="chartone" class="halfwidth"></div>
 
@@ -58,17 +78,17 @@
                 </div>
 
 
-<div id="chartfour" class="smallergraph"></div>
+                <div id="chartfour" class="smallergraph"></div>
 
                 <div class="row2 graphs">
-                <div id="chartthree" class="fullwidth"></div>
-</div>
+                  <div id="chartthree" class="fullwidth"></div>
+                </div>
 
-<div class="row2 graphs">
-                <div id="chartfive" class="fullwidth"></div></div>
+                <div class="row2 graphs">
+                  <div id="chartfive" class="fullwidth"></div>
+                </div>
 
-                <div>Open Cases {{myData.length}}</div>
-                <div>Closed Cases {{500 - myData.length}}</div>
+
               </div>
 
 
