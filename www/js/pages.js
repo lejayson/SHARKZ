@@ -83,7 +83,7 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     views: {
       'menuContent': {
         templateUrl: 'pages/coc/data.html',
-        controller: 'DataCtrl'
+        controller: 'dataCtrl'
       }
     }
   })
