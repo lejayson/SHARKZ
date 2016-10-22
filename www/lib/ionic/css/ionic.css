@@ -5695,7 +5695,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
 .item {
   border-color: #ddd;
   background-color: #fff;
-  color: #444;
+  color: #696969;
   position: relative;
   z-index: 2;
   display: block;
@@ -7662,7 +7662,7 @@ textarea {
   padding: 7px 10px 7px 0px;
   max-width: 200px;
   width: 35%;
-  color: #444;
+  color: #696969;
   font-size: 16px; }
 
 .placeholder-icon {

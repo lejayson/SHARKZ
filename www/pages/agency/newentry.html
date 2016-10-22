@@ -1,20 +1,81 @@
-<ion-view view-title="Playlist" data-ng-controller="jaysonCtrl">
-  <ion-content>
-    Name: <input type="text" ng-model="client.name"/>
-    Gender: <input type="text" ng-model="client.gender"/>
-    <div ng-app>
-    Allow us to collect Vispdat: <input type="checkbox" ng-model="client.VIperm"/>
-     <div ng-show="client.VIperm">
-        <p>vispdat</p>
+<ion-view view-title="New Client" data-ng-controller="jaysonCtrl">
+  <ion-nav-bar class="green-nav">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="green-nav button button-icon icon ion-navicon">
+      </button>
+    </ion-nav-buttons>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-pane>
+    <ion-content scroll="true">
+      <div class="container">
+        <div class="list newclient">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Name
+            </span>
+            <input type="text" ng-model="client.name" placeholder="John Doe">
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">Gender
+            </div>
+            <select ng-model="client.gender">
+              <option>Female
+              </option>
+              <option>Male
+              </option>
+              <option>Transgender male to female
+              </option>
+              <option>Transgender female to male
+              </option>
+              <option>Doesn't identify as male, female, or transgender
+              </option>
+              <option>Client doesn't know
+              </option>
+              <option>Client Refused
+              </option>
+              <option>Not collected
+              </option>
+            </select>
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Age
+            </span>
+            <input type="text" ng-model="client.age" placeholder="21">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Birthday
+            </span>
+            <input type="number" ng-model="client.birthday" placeholder="10/10/2010">
+          </label>
+          <label class="item">
+            Allow us to collect Vispdat
+            <input type="checkbox" ng-model="client.VIperm" />
+            <div ng-show="client.VIperm">
+              <p>vispdat
+              </p>
+            </div>
+          </label>
+          <label class="item noborderbot">
+            Allow us to collect Photos
+            <input type="checkbox" ng-model="client.PICperm" />
+            <div ng-show="client.PICperm">
+              <p>Photo
+              </p>
+            </div>
+          </label>
+
+          <div class="clientbuttons">
+          <button class="green-button grey" ng-click="assignClient()">Assign Case Manager
+          </button>
+          <button class="green-button" ng-click="addClient()">Add Client
+          </button>
+</div>
+        </div>
+
       </div>
-    </div>
-    Allow us to collect Photos: <input type="checkbox" ng-model="client.PICperm"/>
-     <div ng-show="client.PICperm">
-        <p>Photo</p>
-      </div>
-    </div>
-    <br />
-    <button ng-click="addClient()">Add Client</button>
-    <button ng-click="assignClient()">Assign Case Manager</button>
-  </ion-content>
+
+
+    </ion-content>
+  </ion-pane>
 </ion-view>

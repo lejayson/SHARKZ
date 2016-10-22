@@ -192,6 +192,8 @@ a.home.center {
     display: table-cell;
     vertical-align: middle;
     color: #fff;
+    text-align: center;
+    text-decoration: none;
 }
 
 .home.button-bar > a.button {
@@ -549,4 +551,45 @@ p.message-content.ng-binding {
 
 .list-button:last-child {
   border-radius: 0px 3px 3px 0px;
+}
+
+
+
+
+/* ----------------- NEW CLIENT --------------- */
+
+.newclient {
+  padding: 2px;
+}
+
+.newclient > .item {
+  border-left: 0px;
+  border-right: 0px;
+  padding-left: 0px;
+}
+
+.newclient > .item:first-child {
+  border-top: 0px;
+}
+
+.noborderbot {
+  border-bottom: 0px;
+}
+
+.green-button {
+  background-color: #64bf67;
+  border: 0px;
+  padding: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-right: 5px;
+  width: 100%;
+  border-radius: 50px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.green-button.grey {
+  background-color: #7a7a7a;
 }
