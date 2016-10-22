@@ -9,7 +9,7 @@ function toPages(table, itemPerPage){
   for (i = 0; i < numPage; i++){
     for (j = 0; j < itemPerPage; j++){
       if(table[count]){
-          tmp.push(table.$getRecord(count));
+          tmp.push(table[count]);
       }
       count++;
     }
@@ -17,6 +17,49 @@ function toPages(table, itemPerPage){
     tmp = [];
   }
   return arr;
+}
+
+function mergeTable(table1, table2){
+  var arr = [];
+  for(i=0; i<table1.length; i++){
+    arr.push(table1.$getRecord(i));
+  }
+  for(j=0; j<table2.length; j++){
+    arr.push(table2.$getRecord(j));
+  }
+  return arr;
+}
+
+function getAge(table){
+  for(i=0; i < table.length; i++){
+    if(table[i]){
+      var DOB = table[i].DOB.split("/");
+      var d = new Date();
+      var y = 0;
+      if(d.getMonth()< DOB[1]){
+        y = 1;
+      }else if(d.getMonth() == DOB[1] && d.getDate() < DOB[0]){
+        y = 1;
+      }
+      table[i]["age"] = d.getFullYear()-DOB[2]-y;
+    }
+  }
+  return table;
+}
+
+function setVet(table){
+  for(i = 0; i < table.length; i++){
+    if(table[i]){
+      var vet = table[i].VeteranStatus;
+      if(vet){
+        table[i]["vet"] = "Veteran";
+      }
+      else {
+        table[i]["vet"] = "individual";
+      }
+    }
+  }
+  return table;
 }
 
 function increase(num, max){

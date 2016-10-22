@@ -17,7 +17,7 @@
   <ion-pane>
     <ion-content scroll="false" class="has-tabs-top">
 
-      <div class="casefiles-slider" data-ng-controller="arunCtrl">
+      <div class="casefiles-slider" data-ng-controller="arun2Ctrl">
         <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
 
           <ion-slide>
@@ -74,6 +74,8 @@
                             <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
                           </div>
                         </a>
+                        <button ng-click="remove(v)">remove</button>
+                        <button ng-click="edit(v)">edit</button>
                       </ion-item>
                     </ion-list>
                   </div>

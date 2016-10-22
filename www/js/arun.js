@@ -14,18 +14,8 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $st
   $scope.clients = $firebaseArray(arrRef);
 
   $scope.clients.$loaded().then(function(pages) {
-    for(i = 0; i < $scope.clients.length; i++){
-      var DOB = $scope.clients[i].DOB.split("/");
-      var d = new Date();
-      var y = 0;
-      if(d.getMonth()< DOB[1]){
-        y = 1;
-      }else if(d.getMonth() == DOB[1] && d.getDate() < DOB[0]){
-        y = 1;
-      }
-      $scope.clients[i]["age"] = d.getFullYear()-DOB[2]-y;
-      console.log($scope.clients[i]);
-    }
+    $scope.clients = getAge($scope.clients);
+    $scope.clients = setVet($scope.clients);
     $scope.pages = toPages($scope.clients, $scope.itemPerPage);
   });
 
