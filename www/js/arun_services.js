@@ -16,7 +16,6 @@ function toPages(table, itemPerPage){
     arr.push(tmp);
     tmp = [];
   }
-  console.log(arr);
   return arr;
 }
 
