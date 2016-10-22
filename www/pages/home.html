@@ -1,5 +1,60 @@
-<ion-view view-title="Playlist">
-  <ion-content>
-    <h1>Playlist</h1>
-  </ion-content>
+<ion-view view-title="Welcome">
+  <ion-nav-bar class="green-nav">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="green-nav button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+    <div class="tabs">
+      <a ng-repeat="button in buttons" ng-class="{'active': $index === current}" ng-click="slide($index)" class="tab-item">{{ button.name }}</a>
+
+    </div>
+  </div>
+
+  <ion-pane>
+    <ion-content scroll="false" class="has-tabs-top">
+
+      <div class="homepage-slider">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
+
+          <ion-slide>
+
+
+            <div class="agencyhome">
+              <div class="home datavisual container">
+                enter data graphs here
+              </div>
+
+              <div class="button home createnew"><a class="home center">Create New Client</a></div>
+              <div class="home button-bar">
+                <a class="button" href="#/app/agency/allclients">View Clients</a>
+                <a class="button">Assign Services</a>
+              </div>
+
+            </div>
+          </ion-slide>
+
+          <ion-slide>
+            <div class="agencyhome">
+              <div class="home datavisual container">
+                enter data graphs here
+              </div>
+
+              <div class="button home createnew"><a class="home center">Functional Zero</a></div>
+              <div class="home button-bar">
+                <a class="button" href="#/app/agency/allclients">View Clients</a>
+                <a class="button">Assign Services</a>
+              </div>
+
+            </div>
+          </ion-slide>
+
+
+        </ion-slide-box>
+      </div>
+
+    </ion-content>
+  </ion-pane>
 </ion-view>
