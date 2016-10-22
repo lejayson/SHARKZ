@@ -282,6 +282,21 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
       },
       hideHover: 'always'
     });
+    
+    var randnum = Math.random()*50
+    var datafunds = [
+      {label: "Available", value: Math.round(randnum)},
+      {label: "Used", value: Math.round(100 - randnum)}
+    ]
+    
+    $scope.graphfunds = new Morris.Donut({
+      element : 'chartseven',
+      data : datafunds,
+      xkey : 'label',
+      ykeys : ['value'],
+      labels : ['%'],
+      hideHover : true
+    });
 	});
   
   var datahous = [
@@ -358,6 +373,15 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
   
   $scope.showServices = function() {
     $scope.graphservices.setData(dataserv);
+  }
+  
+  $scope.showMonth = function() {
+    var randnum = Math.random()*50
+    var datafunds = [
+      {label: "Available", value: Math.round(randnum)},
+      {label: "Used", value: Math.round(100 - randnum)}
+    ]
+    $scope.graphfunds.setData(datafunds);
   }
 };
 
