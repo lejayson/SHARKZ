@@ -51,6 +51,73 @@ h1.title.menu-title {
   top: 40px;
 }
 
+.client-list {
+  margin-bottom: 15px;
+}
+
+.float-left {
+  float: left;
+}
+
+.client-link {
+  color: #696969;
+}
+
+.client-sort {
+  height: 50px;
+  padding: 0px;
+}
+
+.client-detail {
+  width: 80%;
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 30px;
+}
+
+.client-name {
+  font-size: 1.1em;
+  padding-bottom: 5px;
+  display:block;
+}
+
+.client-scroll {
+    height: 90%;
+    display: block;
+    position: absolute;
+    top: 10%;
+}
+
+.client-age, .client-score, .client-agency, .client-assigned {
+  font-size: .8em;
+  display: block;
+}
+
+.clientinfo.container {
+  padding-top: 5px;
+}
+
+.client-fulllist {
+  padding-top: 15px;
+}
+
+.clientinfo > a.button {
+  word-wrap: normal;
+    font-size: .8em;
+    text-transform: uppercase;
+}
+
+.client-status {
+  height: 40px;
+  border: 0px;
+  background-color: #f8f8f8;
+  color: #666;
+}
+
+.client-status select option {
+    padding: 3px;
+    text-align:right;
+}
 
 /*---------- .001 General Style ----------*/
 
@@ -592,4 +659,40 @@ p.message-content.ng-binding {
 
 .green-button.grey {
   background-color: #7a7a7a;
+}
+
+
+
+
+
+
+/* --------------- HOME PAGE GRAPHS ------------------- */
+
+.row1.graphs {
+  display:block;
+  width: 100%;
+  height: 230px
+}
+
+.row2.graphs {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fullwidth {
+  height:200px;
+  width: auto;
+}
+
+.halfwidth {
+  display:inline-block;
+  width: 50%;
+  height: 230px;
+  float: left;
+}
+
+.smallergraph {
+  width: 80%;
+  margin: 0 auto;
 }
