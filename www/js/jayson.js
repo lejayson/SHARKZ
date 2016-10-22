@@ -1,4 +1,4 @@
-function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $timeout, Camera, $ionicPlatform) {
+function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $timeout, $cordovaCamera, $ionicPlatform) {
   $scope.client = {};
   var rootRef = firebase.database().ref();
   var arrRef = rootRef.child('JaysonSampleClient');
@@ -27,7 +27,7 @@ function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $t
     			// Load image if unable to get camera
     			console.log("error getting camera");
     		} else {
-    			Camera.getPicture(options).then(function (imagePath) {
+    			$cordovaCamera.getPicture(options).then(function (imagePath) {
     				$scope.picture = imagePath;
     				console.log(imagePath);
     			}, function (err) {
@@ -38,19 +38,4 @@ function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $t
     }
   };
 };
-angular.module("SHARKZ").controller("jaysonCtrl", ["$scope", "$firebaseObject", "$firebaseArray", "$compile", "$http", "$timeout", "Camera", "$ionicPlatform", jaysonCtrl])
-// Factory for initializing Camera Object
-.factory('Camera', function($q) {
-  return {
-    getPicture: function(options) {
-      var q = $q.defer();
-      navigator.camera.getPicture(function(result) {
-        q.resolve(result);
-      }, function(err) {
-        q.reject(err);
-      }, options);
-
-      return q.promise;
-    }
-  };
-});
+angular.module("SHARKZ").controller("jaysonCtrl", ["$scope", "$firebaseObject", "$firebaseArray", "$compile", "$http", "$timeout", "$cordovaCamera", "$ionicPlatform", jaysonCtrl]);
