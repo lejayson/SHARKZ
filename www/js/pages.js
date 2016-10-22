@@ -108,7 +108,7 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     views: {
       'menuContent': {
         templateUrl: 'pages/agency/allclients.html',
-        controllers: 'arunCtrl'
+        controller: 'arunCtrl'
       }
     }
   })
