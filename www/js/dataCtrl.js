@@ -235,14 +235,14 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
       ykeys : ['value'],
       labels : ['status'],
       hideHover : true,
-  backgroundColor: '#fff',
-  labelColor: '#535353',
-  colors: [
-    '#64bf67',
-    '#ddd0a9',
-    '#7dc17f',
-    '#ded878'
-  ],
+      backgroundColor: '#fff',
+      labelColor: '#535353',
+      colors: [
+      '#64bf67',
+      '#ddd0a9',
+      '#7dc17f',
+      '#ded878'
+      ],
     });
 
     var dataqual = [{
@@ -259,8 +259,106 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
       hideHover: true
     });
 
+    $scope.graphservices = new Morris.Line({
+      element: 'chartsix',
+      data: datahous,
+      xkey: 'label',
+      ykeys: ['intake','completed'],
+      labels: ['intake','completed'],
+      xLabelFormat: function(x) {
+        console.log(x.getMonth());
+        if(x.getMonth() === 0) return "Jan";
+        else if(x.getMonth() === 1) return "Feb";
+        else if(x.getMonth() === 2) return "Mar";
+        else if (x.getMonth() === 3) return "Apr";
+        else if (x.getMonth() === 4) return "May";
+        else if (x.getMonth() === 5) return "Jun";
+        else if (x.getMonth() === 6) return "Jul";
+        else if (x.getMonth() === 7) return "Aug";
+        else if (x.getMonth() === 8) return "Sep";
+        else if (x.getMonth() === 9) return "Oct";
+        else if (x.getMonth() === 10) return "Nov";
+        else return "Dec";
+      },
+      hideHover: 'always'
+    });
 	});
-
+  
+  var datahous = [
+      {label : "2016-01", intake : 10, completed: 9},
+      {label : "2016-02", intake : 13, completed: 10},
+      {label : "2016-03", intake : 11, completed: 13},
+      {label : "2016-04", intake : 16, completed: 14},
+      {label : "2016-05", intake : 12, completed: 11},
+      {label : "2016-06", intake : 19, completed: 16},
+      {label : "2016-07", intake : 13, completed: 18},
+      {label : "2016-08", intake : 22, completed: 13},
+      {label : "2016-09", intake : 14, completed: 20},
+      {label : "2016-10", intake : 15, completed: 21},
+      {label : "2016-11", intake : 18, completed: 19},
+      {label : "2016-12", intake : 25, completed: 26}
+  ];
+  
+  var datamedi = [
+      {label : "2016-01", intake : 13, completed: 10},
+      {label : "2016-02", intake : 10, completed: 9},
+      {label : "2016-03", intake : 16, completed: 14},
+      {label : "2016-04", intake : 11, completed: 13},
+      {label : "2016-05", intake : 19, completed: 11},
+      {label : "2016-06", intake : 12, completed: 16},
+      {label : "2016-07", intake : 22, completed: 18},
+      {label : "2016-08", intake : 13, completed: 13},
+      {label : "2016-09", intake : 15, completed: 18},
+      {label : "2016-10", intake : 14, completed: 15},
+      {label : "2016-11", intake : 21, completed: 19},
+      {label : "2016-12", intake : 20, completed: 21}
+  ];
+  
+  var dataempl = [
+      {label : "2016-01", intake : 20, completed: 9},
+      {label : "2016-02", intake : 21, completed: 10},
+      {label : "2016-03", intake : 23, completed: 15},
+      {label : "2016-04", intake : 20, completed: 14},
+      {label : "2016-05", intake : 15, completed: 13},
+      {label : "2016-06", intake : 16, completed: 16},
+      {label : "2016-07", intake : 18, completed: 20},
+      {label : "2016-08", intake : 10, completed: 14},
+      {label : "2016-09", intake : 9, completed: 15},
+      {label : "2016-10", intake : 13, completed: 18},
+      {label : "2016-11", intake : 5, completed: 16},
+      {label : "2016-12", intake : 2, completed: 22}
+  ];
+  
+  var dataserv = [
+      {label : "2016-01", intake : 20, completed: 9},
+      {label : "2016-02", intake : 23, completed: 10},
+      {label : "2016-03", intake : 21, completed: 13},
+      {label : "2016-04", intake : 14, completed: 13},
+      {label : "2016-05", intake : 12, completed: 11},
+      {label : "2016-06", intake : 7, completed: 16},
+      {label : "2016-07", intake : 14, completed: 18},
+      {label : "2016-08", intake : 12, completed: 19},
+      {label : "2016-09", intake : 16, completed: 20},
+      {label : "2016-10", intake : 18, completed: 21},
+      {label : "2016-11", intake : 20, completed: 16},
+      {label : "2016-12", intake : 19, completed: 23}
+  ];
+  
+  $scope.showHousing = function() {
+    $scope.graphservices.setData(datahous);
+  }
+  
+  $scope.showMedical = function() {
+    $scope.graphservices.setData(datamedi);
+  }
+  
+  $scope.showEmployment = function() {
+    $scope.graphservices.setData(dataempl);
+  }
+  
+  $scope.showServices = function() {
+    $scope.graphservices.setData(dataserv);
+  }
 };
 
 angular.module("SHARKZ").controller("dataCtrl", ["$scope", "$timeout", "$firebaseObject", "$firebaseArray", dataCtrl]);
