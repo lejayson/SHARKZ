@@ -67,5 +67,23 @@ function arun2Ctrl($scope, $state, $firebaseObject, $firebaseArray, $firebase){
   $scope.edit = function(client){
     $state.go('app.agencyclient');
   }
+
+  $scope.open = function() {
+    $state.go('tabs.home', {});
+  };
+
+  $scope.buttons = [{
+    name: 'Open'
+  }, {
+    name: 'Completed'
+  }, {
+    name: 'Closed'
+  }];
+
+  $scope.slide = function($index) {
+    $scope.current = $index;
+    $ionicSlideBoxDelegate.slide($index);
+  }
+
 }
 angular.module("SHARKZ").controller("arun2Ctrl", ["$scope", "$state", "$firebaseObject", "$firebaseArray", "firebase", arun2Ctrl]);
