@@ -1,4 +1,4 @@
-function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase){
+function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $state, $ionicSlideBoxDelegate, $ionicScrollDelegated){
 
   $scope.filterOptions = [{"Name": "Veteran", "VeteranStatus": 1}, {"Name": "Non-Veteran", "VeteranStatus": 0}, {"Name": "ALL", "VeteranStatus": ""}];
   $scope.sortOptions1 = ["First_Name", "Last_Name"];
@@ -50,6 +50,23 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase){
   $scope.increasePage = function(page, max) {
     return increase(page, max);
     console.log(page);
+  }
+
+  $scope.open = function() {
+    $state.go('tabs.home', {});
+  };
+
+  $scope.buttons = [{
+    name: 'Open'
+  }, {
+    name: 'Completed'
+  }, {
+    name: 'Closed'
+  }];
+
+  $scope.slide = function($index) {
+    $scope.current = $index;
+    $ionicSlideBoxDelegate.slide($index);
   }
 
 }
