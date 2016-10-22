@@ -32,42 +32,16 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+
+  .state('app.login', {
+    url: '/login',
     views: {
       'menuContent': {
-        templateUrl: 'pages/search.html'
+        templateUrl: 'pages/login.html'
       }
     }
   })
 
-  .state('app.browse', {
-    url: '/browse',
-    views: {
-      'menuContent': {
-        templateUrl: 'pages/browse.html'
-      }
-    }
-  })
-
-  .state('app.playlists', {
-    url: '/playlists',
-    views: {
-      'menuContent': {
-        templateUrl: 'pages/playlists.html',
-        controller: 'PlaylistsCtrl'
-      }
-    }
-  })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'pages/playlist.html'
-      }
-    }
-  })
 
   .state('app.cochome', {
     url: '/coc/home',
@@ -101,7 +75,8 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     url: '/agency/client',
     views: {
       'menuContent': {
-        templateUrl: 'pages/agency/client.html'
+        templateUrl: 'pages/agency/client.html',
+        controller: 'clientCtrl'
       }
     }
   })
@@ -138,7 +113,8 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     url: '/home',
     views: {
       'menuContent': {
-        templateUrl: 'pages/home.html'
+        templateUrl: 'pages/home.html',
+        controller: 'homeCtrl'
       }
     }
   });
