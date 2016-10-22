@@ -47,7 +47,9 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     url: '/coc/home',
     views: {
       'menuContent': {
-        templateUrl: 'pages/coc/home.html'
+        //templateUrl: 'pages/coc/home.html' //Use if home pages are split
+        templateUrl: 'pages/home.html',
+        controller: 'homeCtrl'
       }
     }
   })
@@ -66,7 +68,9 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     url: '/agency/home',
     views: {
       'menuContent': {
-        templateUrl: 'pages/agency/home.html'
+        //templateUrl: 'pages/agency/home.html' //Use if home pages are split
+        templateUrl: 'pages/home.html',
+        controller: 'homeCtrl'
       }
     }
   })
