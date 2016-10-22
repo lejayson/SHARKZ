@@ -7,12 +7,40 @@ function dataCtrl($scope, $timeout) {
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   
-  var dataone = [{name: 0, number: 1}];
   
-  var graphone = new Morris.Bar({
-    
+  
+  var dataone = [{label: "Asian", value: 1}, {label: "African", value: 1}, {label: "Caucasian", value: 1}, {label: "Pacific Islander", value: 1}, {label: "Native American", value: 1}];
+  
+  var graphone = new Morris.Donut({
     element: 'chartone',
-    data: dataone,
+    data: dataone
+  });
+  
+  var datatwo = [{label: 'male', value: 1},{label: 'female', value: 1}];
+  
+  var graphtwo = new Morris.Donut({
+    element: 'charttwo',
+    data: datatwo
+  });
+  
+  var datathree = [{name: 0, number: 1}];
+  
+  var graphthree = new Morris.Bar({
+    
+    element: 'chartthree',
+    data: datathree,
+    xkey: 'name',
+    ykeys: ['number'],
+    labels: ['val'],
+    hideHover: 'always'
+  });
+  
+  var datafour = [{name: 0, number: 1}];
+  
+  var graphfour = new Morris.Bar({
+    
+    element: 'chartthree',
+    data: datafour,
     xkey: 'name',
     ykeys: ['number'],
     labels: ['val'],
