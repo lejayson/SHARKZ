@@ -64,6 +64,15 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     }
   })
 
+  .state('app.cocallclients', {
+    url: '/coc/allclients',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/coc/allclients.html',
+      }
+    }
+  })
+
   .state('app.agencyhome', {
     url: '/agency/home',
     views: {
