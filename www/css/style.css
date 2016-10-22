@@ -234,6 +234,7 @@ button.button.button-block.login {
   height: 100%;
 }
 
+
 .home.datavisual {
   height: 80%;
   display:block;
@@ -249,18 +250,49 @@ button.button.button-block.login {
 
 .home.createnew {
   width: 100%;
-  height: 10%;
+  height: 33%;
   display: table;
-  background-color: #64bf67;
+  background-color: #64bf7e;
   border-radius: 0px;
 }
 
+.home.viewclients {
+  width: 50%;
+  height: 33%;
+  display: table;
+  background-color: #64bf9e;
+  border-radius: 0px;
+  float: left;
+  font-size: .8em;
+}
+
+.home.agencystatus {
+  width: 50%;
+  height: 33%;
+  display: table;
+  background-color: #64bf9e;
+  border-radius: 0px;
+  float:left;
+    font-size: .8em;
+}
+
+.home.datareports {
+  width: 100%;
+  height: 33%;
+  display: table;
+  background-color: #64bfbe;
+  border-radius: 0px;
+    font-size: .8em;
+}
+
 a.home.center {
-    display: table-cell;
-    vertical-align: middle;
-    color: #fff;
+  display: table-cell;
+  vertical-align: middle;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: 300;
     text-align: center;
-    text-decoration: none;
 }
 
 .home.button-bar > a.button {
@@ -270,6 +302,45 @@ a.home.center {
   border-radius: 0px;
   color: #fff;
 }
+
+.agency-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.agency-image2 {
+  height: 200px;
+  left: -30%;
+  position: relative;
+}
+
+.agency-buttons2 {
+  position: absolute;
+  top: 80%;
+}
+
+.agency-buttons2 > .home.createnew, .agency-buttons2 > .home.viewclients, .agency-buttons2 > .home.agencystatus {
+  height: 50%;
+}
+
+.agency-buttons5 {
+  position: absolute;
+  top: 70%;
+}
+
+
+.hmis-content {
+  height: 80%;
+}
+
+.hmis.createnew {
+  width: 100%;
+  height: 10%;
+  display: table;
+  background-color: #64bf7e;
+  border-radius: 0px;
+}
+
 
 
 /*---------- .003 Home Page ----------*/
