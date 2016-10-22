@@ -265,7 +265,7 @@ a.home.center {
 
 .home.button-bar > a.button {
   border: 0px;
-  line-height: 55px;
+  line-height: 60px;
   background-color: #4cae4f;
   border-radius: 0px;
   color: #fff;
@@ -678,6 +678,11 @@ p.message-content.ng-binding {
   width: 100%;
   height: auto;
   display: block;
+  margin-bottom: 50px;
+}
+
+.morris-hover.morris-default-style {
+    text-align: center;
 }
 
 .fullwidth {
@@ -695,4 +700,24 @@ p.message-content.ng-binding {
 .smallergraph {
   width: 80%;
   margin: 0 auto;
+  height: 400px;
+  top: -50px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+
+.agency-half {
+  display:inline-block;
+  text-align: center;
+  width: 50%;
+  float: left;
+  padding-top:35px;
+  padding-bottom: 15px;
+}
+
+.data-header {
+  font-size: 2.5em;
+  display: block;
+  padding-bottom: 5px;
 }
