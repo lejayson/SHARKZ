@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.dataCtrl'])
+angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -128,7 +128,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.dataCtrl'])
     url: '/agency/allclients',
     views: {
       'menuContent': {
-        templateUrl: 'pages/agency/allclients.html'
+        templateUrl: 'pages/agency/allclients.html',
+        controllers: 'allclientsCtrl'
       }
     }
   })

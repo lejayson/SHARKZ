@@ -1,1 +1,409 @@
-/* Empty. Add your own CSS if you like */
+/*-
+
+.001 General Styles
+.002 Home Page
+.003 Profile Page
+
+*/
+
+
+/*---------- .001 General Style ----------*/
+
+body {
+  color: #6e6e6e;
+}
+
+.button:hover {
+  color: #4d9a50;
+}
+
+.bar .button.back-button, .bar button.back-button {
+  color: #4d9a50;
+  padding-left: 5px;
+}
+
+.bar .button.button-icon, .bar button.button-icon {
+  color: #4d9a50;
+  padding-right: 2px;
+}
+
+.green-nav {
+  background-color: #64bf67;
+  color: #fff;
+  border-bottom: 1px solid #64bf67;
+}
+
+span.back-text {
+  font-size: .7em;
+  text-transform: uppercase;
+  line-height: 20px;
+  letter-spacing: .05em;
+  color: #fff;
+}
+
+.container {
+  padding: 14px;
+}
+
+p {
+  font-size: .9em;
+  color: #989898;
+}
+
+.float-right {
+  float: right;
+}
+
+.background-color-grey {
+  background-color: #f9f9f9;
+}
+
+
+/*---------- .002 Home Page ----------*/
+
+.home-container {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  height: 100%;
+}
+
+.home-header {
+  -webkit-flex: 2.5 !important;
+  -webkit-align-items: center;
+  background-color: #efefef;
+}
+
+.home-icons {
+  -webkit-align-items: center;
+  font-size: 1.3em;
+  font-weight: 300;
+  letter-spacing: .04em;
+}
+
+.home-container>.row {
+  -webkit-flex: 1;
+}
+
+.home-buttons {
+  -webkit-flex: 1;
+}
+
+.home-icons>.text-center>.lnr {
+  display: block;
+  font-size: 32px;
+  padding-bottom: 10px;
+}
+
+.row.home-icons {
+  width: 85%;
+  margin: 0 auto;
+  padding-bottom: 0px;
+}
+
+.row.home-icons.one {
+  padding-top: 25px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.row.home-icons.two {
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.row.home-icons.three {
+  padding-bottom: 25px;
+}
+
+
+/*---------- .003 Profile Page ----------*/
+
+.scroll {
+  height: 100%;
+}
+
+.profile-container {
+  height: 100%;
+}
+
+.profile-header {
+  height: 30%;
+  -webkit-align-items: center;
+  background-color: #efefef;
+}
+
+.profile-expand {
+  position: absolute;
+  z-index: 100;
+  height: 30px;
+  right: 0;
+  margin-top: -30px;
+  width: 30px;
+  background-color: rgba(0, 0, 0, .1);
+  border: 0px;
+}
+
+.profile-expand>.lnr {
+  text-align: center;
+  position: relative;
+  display: block;
+}
+
+.profile-navigation {
+  -webkit-align-items: center;
+  padding: 0px;
+  height: 10%
+}
+
+.profile-navigation-bar {
+  height: 100%;
+}
+
+.profile-navigation-bar>a>span {
+  top: 35%;
+  display: block;
+  position: relative;
+}
+
+.profile-navigation-bar>.button:first-child, .profile-navigation-bar>.button, .profile-navigation-bar>.button:last-child {
+  border-radius: 0px;
+  background-color: #f9f9f9;
+  line-height: 60px;
+  font-size: 1.5em;
+  border-width: 0px 1px 1px 0px;
+  border-color: #e8e8e8;
+}
+
+.profile-navigation-bar>a.button.activated {
+  background-color: #fff;
+  border-color: #e8e8e8;
+  border-width: 0px 1px 0px 0px;
+}
+
+.profile-navigation-bar>.button:after {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  content: ' ';
+}
+
+.profile-stats {
+  -webkit-align-items: center;
+  background-color: #fff;
+  border-bottom: 1px solid #f1f1f0;
+  padding: 0px;
+  color: #bdbdbd;
+  font-size: .9em;
+  margin-top: 0px !important;
+}
+
+.button.button-stable.active, .button.button-stable.activated {
+  background-color: #fff;
+  border-color: #e8e8e8;
+  border-width: 0px 1px 0px 0px;
+}
+
+.profile-number {
+  display: block;
+  font-size: 1.7em;
+  font-weight: 600;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  color: #717171;
+}
+
+.profile-details>p {
+  border-bottom: 1px solid #f1f1f0;
+  margin-bottom: 0px;
+}
+
+.profile-details>p>.h5 {
+  line-height: 30px;
+  display: inline-block;
+  height: 100%;
+  padding-right: 10px;
+  border-right: 1px solid #f1f1f0;
+  margin: 0px 10px 0px 0px;
+}
+
+.profile-slider {
+  height: 60%;
+}
+
+.profile-slider>.slider {
+  height: 100%;
+}
+
+.program-button, .program-button.button-icon.icon:before {
+  font-size: 23px;
+  padding: 0px 0px 0px 5px;
+  height: 30px;
+  min-height: 20px;
+  line-height: 20px;
+}
+
+.profile-program-header {
+  padding-bottom: 5px;
+  padding-top: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: #fff;
+}
+
+.profile-program-list {
+  margin-bottom: 15px;
+}
+
+.profile-program-list>a.item-content.ng-binding, .profile-program-list>a.item-content {
+  white-space: normal;
+  padding: 15px;
+}
+
+.program-name {
+  white-space: normal;
+  color: #64bf67;
+}
+
+p.program-description {
+  white-space: normal;
+  padding-top: 5px;
+  font-size: .8em;
+  color: #989898;
+}
+
+.item-delete .button.icon {
+  color: #fff;
+  font-size: 24px;
+  border-radius: 0;
+  background-color: #64bf67;
+  border: 0;
+  padding: 13px;
+}
+
+.profile-messages {
+  height: 85%;
+}
+
+.profile-message-box {
+  display: block;
+  bottom: 0px;
+  height: 15%;
+  position: absolute;
+  width: 100%;
+}
+
+.profile-message-box>.item.item-input-inset {
+  height: 100%;
+  background-color: #fff;
+  padding: 0px;
+  border-bottom: 0px;
+  border-top: 1px solid #e8e8e8;
+  border-left: 0px;
+  margin: 0px;
+  border-right: 0px;
+}
+
+label.item-input-wrapper {
+  border-radius: 0px;
+  background-color: #fff;
+  padding: 0px;
+  padding-left: 14px;
+}
+
+button.button.button-small {
+  height: 100%;
+  padding: 14px;
+}
+
+.profile-messages-list {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  border-bottom: 1px solid #e8e8e8;
+  margin: 0px;
+}
+
+.profile-messages-list:first-child {
+  border-top: 0px;
+}
+
+.profile-messages-list:last-child {
+  border-bottom: 0px;
+}
+
+.profile-messages-list>a.item-content {
+  padding: 20px 15px 20px 15px;
+}
+
+p.message-content.ng-binding {
+  color: #989898;
+  font-size: .9em;
+}
+
+.message-date {
+  text-transform: uppercase;
+  font-size: .7em;
+  color: #989898;
+}
+
+.message-name {
+  font-size: .9em;
+  padding-bottom: 3px;
+  display: inline-block;
+  color: #64bf67;
+}
+
+
+/*---------- .004 Casefiles Page ----------*/
+
+.casefiles-slider {
+  height: 100%;
+  background-color: #e8e8e8;
+}
+
+.casefiles-slider>.slider {
+  height: 100%
+}
+
+.casefile-search-box {
+  display: block;
+  height: 10%;
+  width: 100%;
+}
+
+.casefile-search-box>.item.item-input-inset {
+  height: 100%;
+  background-color: #e8e8e8;
+  padding: 17px 15px 15px 15px;
+  border-bottom: 0px;
+  border-top: 1px solid #e8e8e8;
+  border-left: 0px;
+  margin: 0px;
+  border-right: 0px;
+}
+
+.search-input-wrapper {
+  border-radius: 3px 0px 0px 3px;
+  background-color: #fff;
+  padding: 0px;
+  padding-left: 14px;
+  padding-top: 3px;
+  width: 100%;
+  height: 40px;
+}
+
+.casefiles-container {
+  height: 90%;
+  top: 10%;
+}
+
+.group-button, .list-button {
+  height: 40px;
+  border-radius: 0px;
+  border: 0px;
+  min-height: 40px;
+}
+
+.list-button:last-child {
+  border-radius: 0px 3px 3px 0px;
+}
