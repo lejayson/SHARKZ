@@ -127,7 +127,8 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     url: '/agency/allclients',
     views: {
       'menuContent': {
-        templateUrl: 'pages/agency/allclients.html'
+        templateUrl: 'pages/agency/allclients.html',
+        controllers: 'allclientsCtrl'
       }
     }
   })
