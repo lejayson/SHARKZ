@@ -56,7 +56,8 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     url: '/coc/data',
     views: {
       'menuContent': {
-        templateUrl: 'pages/coc/data.html'
+        templateUrl: 'pages/coc/data.html',
+        controller: 'dataCtrl'
       }
     }
   })
@@ -103,7 +104,7 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     views: {
       'menuContent': {
         templateUrl: 'pages/agency/allclients.html',
-        controllers: 'allclientsCtrl'
+        controllers: 'arunCtrl'
       }
     }
   })
