@@ -17,7 +17,7 @@ function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $t
     		targetHeight : 1024,
     		sourceType : 1, // 0:PHOTOLIBRARY, 1:CAMERA, 2:SAVEDPHOTOALBUM
     		correctOrientation : true,
-    		destinationType : 1, // 0:DATA_URL, 1:FILE_URI, 2:NATIVE_URI
+    		destinationType : 0, // 0:DATA_URL, 1:FILE_URI, 2:NATIVE_URI
     		encodingType : 0, // 0:JPEG, 1:PNG
     		allowEdit : false
     	};
@@ -27,9 +27,21 @@ function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $t
     			// Load image if unable to get camera
     			console.log("error getting camera");
     		} else {
-    			$cordovaCamera.getPicture(options).then(function (imagePath) {
-    				$scope.picture = imagePath;
-    				console.log(imagePath);
+    			$cordovaCamera.getPicture(options).then(function (imageData) {
+    				$scope.picture = "data:image/jpeg;base64," + imageData;
+    				var myBLOB = atob(imageData);
+
+    				for (var i = 0; i < myBLOB.length; i++) {
+    					myBLOB[i] = myBLOB.charCodeAt(i);
+    				}
+
+    				myBLOB = new Uint8Array(myBLOB);
+
+    				myBLOB = new BLOB([myBLOB], {type : contentType});
+            
+            $scope.picBLOB = myBLOB;
+            alert($scope.picBLOB);
+            
     			}, function (err) {
     				console.log("Camera Failed: " + err);
     			});
