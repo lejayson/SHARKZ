@@ -1,0 +1,94 @@
+<ion-view view-title="HMIS Shelter">
+  <ion-nav-bar class="green-nav">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="green-nav button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+
+
+  <ion-pane>
+    <ion-content scroll="false">
+
+      <div class="casefiles-slider" data-ng-controller="arun2Ctrl">
+        <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
+
+          <ion-slide>
+
+            <div class="casefile-search-box">
+              <div class="item item-input-inset">
+                <label class="search-input-wrapper">
+                  <input type="text" ng-model="search" placeholder="Search">
+                </label>
+                <button class="button group-button">
+                  <i class="icon ion-grid"></i>
+                </button>
+                <button class="button list-button">
+                  <i class="icon ion-android-menu"></i>
+                </button>
+                <select class="client-status" ng-model="selectedOptions.VeteranStatus" ng-options="selected.VeteranStatus as selected.Name for selected in filterOptions">
+                  <option value="">Status</option>
+                </select>
+                <!--
+                <select class="button list-button" ng-model="selectedOptions">
+                  <option ng-repeat="f in filterOptions">{{f}}</option>
+                </select>
+-->
+              </div>
+            </div>
+
+            <ion-content class="client-scroll" scroll="true" delegate-handle="messages">
+              <div class="container clientinfo">
+
+
+                <div class="button-bar clientinfo">
+                  <a class="button" ng-click="sortBy('First_Name')">first name</a>
+                  <a class="button" ng-click="sortBy('Last_Name')">last name</a>
+                  <a class="button" ng-click="sortBy('score')">score</a>
+                  <a class="button" ng-click="sortBy('age')">Age</a>
+                </div>
+
+                <!-- Table generation -->
+                <div>
+
+
+                  <div class="client-fulllist">
+                    <ion-list ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
+                      <ion-item class="client-list">
+                        <a class="client-link" ng-href="#/app/agency/client">
+
+                          <img class="float-left" src="img\placeholder.png">
+
+                          <div class="client-detail">
+                            <span class="client-name">{{ v.First_Name }} {{ v.Last_Name }}</span>
+                            <span class="client-age"><b>Age</b> {{ v.age }} {{ v.vet }}</span>
+                            <span class="client-score"><b>VISPDAT Score</b> {{ v.score }}</span>
+                            <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>
+                            <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
+                          </div>
+                        </a>
+                        <button ng-click="remove(v)">remove</button>
+                        <button ng-click="edit(v)">edit</button>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+                  <button ng-click="currentPage1 = decreasePage(currentPage1)"><<</button> {{currentPage1 + 1}}/{{pages.length}}
+                  <button ng-click="currentPage1 = increasePage(currentPage1, pages.length)">>></button>
+
+                </div>
+              </div>
+            </ion-content>
+
+
+
+          </ion-slide>
+
+        
+
+        </ion-slide-box>
+        </div>
+
+    </ion-content>
+  </ion-pane>
+</ion-view>

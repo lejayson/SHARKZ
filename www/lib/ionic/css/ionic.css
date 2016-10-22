@@ -4374,7 +4374,6 @@ a.subdued {
       border-top: none !important;
       border-bottom: none;
       background-position: top;
-      background-size: 100% 1px;
       background-repeat: no-repeat; } }
 
 /* Allow parent element of tabs to define color, or just the tab itself */
