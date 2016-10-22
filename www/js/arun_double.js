@@ -2,31 +2,28 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase){
 
   $scope.filterOptions = [{"Name": "Veteran", "VeteranStatus": 1}, {"Name": "Non-Veteran", "VeteranStatus": 0}, {"Name": "ALL", "VeteranStatus": ""}];
   $scope.sortOptions1 = ["First_Name", "Last_Name"];
+  $scope.sortOptions2 = ["First_Name", "Last_Name"];
   $scope.volunteers = [];
   $scope.propertyName = 'First_Name';
+  $scope.propertyName2 = 'First_Name';
   $scope.reverse = false;
+  $scope.reverse2 = false;
   $scope.itemPerPage = 10;
   $scope.currentPage1 = 0;
+  $scope.currentPage2 = 0;
 
 //Firebase method
   var rootRef = firebase.database().ref();
-  var arrRef = rootRef.child('St_Patrick');
-  $scope.clients = $firebaseArray(arrRef);
+  var ppRef = rootRef.child('P&P');
+  var spRef = rootRef.child('St_Patrick');
+  $scope.ppclients = $firebaseArray(ppRef);
+  $scope.spclients = $firebaseArray(spRef);
 
-  $scope.clients.$loaded().then(function(pages) {
-    for(i = 0; i < $scope.clients.length; i++){
-      var DOB = $scope.clients[i].DOB.split("/");
-      var d = new Date();
-      var y = 0;
-      if(d.getMonth()< DOB[1]){
-        y = 1;
-      }else if(d.getMonth() == DOB[1] && d.getDate() < DOB[0]){
-        y = 1;
-      }
-      $scope.clients[i]["age"] = d.getFullYear()-DOB[2]-y;
-      console.log($scope.clients[i]);
-    }
-    $scope.pages = toPages($scope.clients, $scope.itemPerPage);
+  $scope.ppclients.$loaded().then(function(pages) {
+    $scope.pppages = toPages($scope.ppclients, $scope.itemPerPage);
+  });
+  $scope.spclients.$loaded().then(function(pages) {
+    $scope.sppages = toPages($scope.spclients, $scope.itemPerPage);
   });
 
   $scope.propertyName = 'id';
@@ -42,6 +39,15 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase){
     $scope.propertyName = propertyName;
   };
 
+  $scope.sortBy2 = function(propertyName) {
+    if ($scope.reverse2 == true){
+      $scope.reverse2 = false;
+    }
+    else {
+      $scope.reverse2 = true;
+    }
+    $scope.propertyName2 = propertyName;
+  };
 
   $scope.decreasePage = function(page) {
     return decrease(page);

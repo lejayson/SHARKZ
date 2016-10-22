@@ -58,30 +58,57 @@
                       <th>
                         <button ng-click="sortBy('Last_Name')">last name</button>
                       </th>
-                      <th>
-                        <button ng-click="sortBy('Agencies')">Agency</button>
-                      </th>
-                      <th>
-                        <button ng-click="sortBy('score')">score</button>
-                      </th>
-                      <th>
-                        <button ng-click="sortBy('age')">Age</button>
-                      </th>
-                      <th>
-                        <button ng-click="sortBy('UserID')">User ID</button>
-                      </th>
-                      <th>
-                        <button ng-click="sortBy('VeteranStatus')">Vet. Status</button>
-                      </th>
                     </tr>
-                    <tr ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
-                      <td>{{ v.First_Name }}</td> <td>{{ v.Last_Name }}</td> <td>{{ v.Agencies }}</td> <td>{{ v.score }}</td>
-                      <td>{{ v.age }}</td> <td>{{ v.UserID }}</td> <td>{{ v.VeteranStatus }}</td>
+                      <td>First_Name</td> <td>Last_Name</td>
+                    <tr ng-repeat="v in pppages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
+                      <td>{{ v.First_Name }}</td> <td>{{ v.Last_Name }}</td> <td>{{ v.Agencies }}</td>
                     </tr>
                   </table>
                   <button ng-click="currentPage1 = decreasePage(currentPage1)"><<</button>
-                  {{currentPage1 + 1}}/{{pages.length}}
-                  <button ng-click="currentPage1 = increasePage(currentPage1, pages.length)">>></button>
+                  {{currentPage1 + 1}}/{{pppages.length}}
+                  <button ng-click="currentPage1 = increasePage(currentPage1, pppages.length)">>></button>
+
+
+                <div class="casefile-search-box">
+                  <div class="item item-input-inset">
+                    <label class="search-input-wrapper">
+                      <input type="text" ng-model="search2" placeholder="Search">
+                    </label>
+                    <button class="button group-button">
+                      <i class="icon ion-grid"></i>
+                    </button>
+                    <button class="button list-button">
+                      <i class="icon ion-android-menu"></i>
+                    </button>
+                    <select ng-model="selectedOptions2.VeteranStatus"
+                      ng-options="selected.VeteranStatus as selected.Name for selected in filterOptions">
+                      <option value=""></option>
+                    </select>
+                <!--
+                    <select class="button list-button" ng-model="selectedOptions">
+                      <option ng-repeat="f in filterOptions">{{f}}</option>
+                    </select>
+                -->
+                  </div>
+
+                  <table>
+                    <tr>
+                      <th>
+                        <button ng-click="sortBy2('First_Name')">first name</button>
+                      <th>
+                      </th>
+                        <button ng-click="sortBy2('Last_Name')">last name</button>
+                      </th>
+                    </tr>
+                      <td>First_Name</td> <td>Last_Name</td>
+                    <tr ng-repeat="v in sppages[currentPage2] | filter: search2 | orderBy : propertyName2 : reverse2 | filter: selectedOptions2">
+                      <td>{{ v.First_Name }}</td> <td>{{ v.Last_Name }}</td> <td>{{ v.Agencies }}</td>
+                    </tr>
+                  </table>
+                  <button ng-click="currentPage2 = decreasePage(currentPage2)"><<</button>
+                  {{currentPage2 + 1}}/{{sppages.length}}
+                  <button ng-click="currentPage2 = increasePage(currentPage2, sppages.length)">>></button>
+                </div>
 
               </div>
             </ion-content>
