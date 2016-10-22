@@ -1,5 +1,211 @@
-<ion-view view-title="Playlist">
-  <ion-content>
-    <h1>Playlist</h1>
-  </ion-content>
+<!---
+
+USE THIS TO NAVGIATE THROUGH content
+
+001. Navigation Bar
+002. Content
+003. Profile Header
+004. Open and Close the Header
+005. Profile Navigation Menu
+006. Profile Slider Content
+007. Profile General Information
+008. Basic Statistics
+009. Client Information
+010. Housing Programs
+011. Employment Programs
+012. Health Programs
+013. Message Box
+
+--->
+
+
+<ion-view view-title="Jane Doe">
+
+  <!--- 001. Navigation Bar --->
+  <ion-nav-bar class="green-nav">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="green-nav button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <!--- 002. Content --->
+  <ion-pane>
+    <ion-content scroll="false">
+      <div class="profile-container">
+
+        <!--- 003. Profile Header --->
+        <div class="row profile-header">
+          <div class="col text-center">
+            [LOGO / HEADER]
+          </div>
+        </div>
+
+
+        <!--- 004. Open and Close the Header --->
+        <button class="profile-expand">
+          <span class="lnr lnr-chevron-up"></span>
+        </button>
+
+        <div class="row profile-navigation">
+
+          <div class="button-bar profile-navigation-bar">
+            <!--- 005. Profile Navigation Menu --->
+            <div class="button-bar profile-navigation-bar">
+              <a ng-repeat="button in buttons" ng-class="{'active': $index === current}" ng-click="slide($index)" class="button button-stable"><span class="{{ button.name }}"></span></a>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!--- 006. Profile Slider Content --->
+        <div class="profile-slider">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
+            <!--- 007. Profile General Information --->
+            <ion-slide>
+              <ion-content scroll="true">
+                <div class="row profile-stats">
+
+                  <div class="col text-center">
+                    <!--- 008. Basic Statistics --->
+                    <div class="row">
+
+                      <div class="col text-center">
+                        <span class="profile-number">10.8.12</span> Admitted
+                      </div>
+
+                      <div class="col text-center">
+                        <span class="profile-number">3</span> Services
+                      </div>
+
+                      <div class="col text-center">
+                        <span class="profile-number">23</span> Days
+                      </div>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                <!--- 009. Client Information --->
+                <div class="container">
+                  <p><span class="h4">Jane Doe</span> <span class="float-right"><b>ID</b> 0000912</span> </p>
+                  <p>Through our discovery session, we learn that her last permanent address was in Chicago. She came to St. Louis with her children to escape a violent domestic situation, does not have a support system here and needs emergency housing.
+                    She did not complete her high school education, needs assistance finding and subsidizing a permanent housing solution and likely would benefit from parenting skills classes.</p>
+                  <div class="profile-details">
+                    <p><span class="h5">Age</span>22</span>
+                    </p>
+                    <p><span class="h5">Date of Birth</span>October 10, 1994</span>
+                    </p>
+                    <p><span class="h5">Address</span>2910 A street Name</span>
+                    </p>
+                    <p><span class="h5">Phone Number</span>000.000.0000</span>
+                    </p>
+                    <p><span class="h5">Email</span>theiremail@email.com</span>
+                    </p>
+                    <p><span class="h5">SSN</span>310-20-2081</span>
+                    </p>
+                  </div>
+                </div>
+              </ion-content>
+            </ion-slide>
+
+
+            <!--- 010. Housing Programs --->
+            <ion-slide>
+              <ion-content scroll="true">
+                <div class="background-color-grey">
+                  <div class="profile-program-header">
+
+                    <p><span class="h4">Housing Programs</span>
+                      <span class="float-right ">
+                        <button class="program-button button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+
+                        <button class="program-button button button-icon icon ion-ios-plus-outline" ng-click=""></button>
+
+                      </span>
+                    </p>
+
+
+                  </div>
+
+
+                  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+
+                    <ion-item ng-repeat="item in items" item="item" href="#/item/{{item.id}}" class="profile-program-list">
+                      <span class="program-name">{{ item.id }}</span>
+                      <p class="program-description">{{ item.description }}</p>
+                      <ion-delete-button class="ion-minus program-delete-button" ng-click="onItemDelete(item)">
+                      </ion-delete-button>
+                    </ion-item>
+
+                  </ion-list>
+
+                </div>
+              </ion-content>
+            </ion-slide>
+
+
+            <!--- 011. Employment Programs --->
+            <ion-slide>
+              <ion-content scroll="true">
+                <div class="container">
+                  test 2
+                </div>
+              </ion-content>
+            </ion-slide>
+
+
+            <!--- 012. Health Programs --->
+            <ion-slide>
+              <ion-content scroll="true">
+                <div class="container">
+                  test 2
+                </div>
+              </ion-content>
+            </ion-slide>
+
+
+            <!--- 013. Message Box --->
+            <ion-slide>
+              <ion-content scroll="true" class="profile-messages" delegate-handle="messages">
+                <div class="">
+
+                  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+
+                    <ion-item ng-repeat="item in messages" item="item" href="#/item/{{item.id}}" class="profile-messages-list">
+                      <span class="message-name">{{ item.id }}</span>
+                      <span class="message-date float-right">{{ item.date}}</span>
+                      <p class="message-content">{{ item.description }}</p>
+                      <ion-delete-button class="ion-minus program-delete-button" ng-click="onItemDelete(item)">
+                      </ion-delete-button>
+                    </ion-item>
+
+                  </ion-list>
+
+                </div>
+              </ion-content>
+
+              <div class="profile-message-box">
+                <div class="item item-input-inset">
+                  <label class="item-input-wrapper">
+                    <input type="text" placeholder="Type a message...">
+                  </label>
+                  <button class="button button-small">
+                    Send
+                  </button>
+                </div>
+              </div>
+            </ion-slide>
+
+          </ion-slide-box>
+        </div>
+      </div>
+
+    </ion-content>
+  </ion-pane>
 </ion-view>
