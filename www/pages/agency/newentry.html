@@ -58,10 +58,9 @@
           </label>
           <label class="item noborderbot">
             Allow us to collect Photos
-            <input type="checkbox" ng-model="client.PICperm" />
+            <input type="checkbox" ng-model="client.PICperm" ng-click="toggleCamera()" />
             <div ng-show="client.PICperm">
-              <p>Photo
-              </p>
+              <img class="cameraimage" ng-src="{{picture}}">
             </div>
           </label>
 

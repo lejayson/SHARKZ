@@ -130,12 +130,16 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
       {label: "Good", value: $scope.gooddata},
       {label: "Poor", value: $scope.poordata}
     ];
-
-    $scope.grapheth.setData(newEthnData);
-    $scope.graphgend.setData(newGendData);
-    $scope.graphmil.setData(newMilData);
-    $scope.graphvet.setData(newVetData);
-    $scope.graphqual.setData(newQualData);
+    if (typeof $scope.grapheth !== "undefined")
+      $scope.grapheth.setData(newEthnData);
+    if (typeof $scope.graphgend !== "undefined")
+      $scope.graphgend.setData(newGendData);
+    if (typeof $scope.graphmil !== "undefined")
+      $scope.graphmil.setData(newMilData);
+    if (typeof $scope.graphvet !== "undefined")
+      $scope.graphvet.setData(newVetData);
+    if (typeof $scope.graphqual !== "undefined")
+      $scope.graphqual.setData(newQualData);
   };
 
   $scope.$watch("myData", function(newValue, oldValue) {
@@ -400,11 +404,16 @@ function agencyDataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
       {label: "Poor", value: $scope.poordata}
     ];
 
-    $scope.grapheth.setData(newEthnData);
-    $scope.graphgend.setData(newGendData);
-    $scope.graphmil.setData(newMilData);
-    $scope.graphvet.setData(newVetData);
-    $scope.graphqual.setData(newQualData);
+    if (typeof $scope.grapheth !== "undefined")
+      $scope.grapheth.setData(newEthnData);
+    if (typeof $scope.graphgend !== "undefined")
+      $scope.graphgend.setData(newGendData);
+    if (typeof $scope.graphmil !== "undefined")
+      $scope.graphmil.setData(newMilData);
+    if (typeof $scope.graphvet !== "undefined")
+      $scope.graphvet.setData(newVetData);
+    if (typeof $scope.graphqual !== "undefined")
+      $scope.graphqual.setData(newQualData);
   };
 
   $scope.$watch("myData", function(newValue, oldValue) {
