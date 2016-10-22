@@ -13,37 +13,28 @@
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Left</h1>
+    <ion-header-bar class="bar-stable menu-headerbar">
+      <h1 class="title menu-title">St. Patrick</h1>
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-click="login()">
+        <ion-item menu-close href="#/app/login">
           Login
         </ion-item>
-        <ion-item menu-close href="#/app/search">
-          Search
+        <ion-item menu-close href="#/app/home">
+          Home
         </ion-item>
         <ion-item menu-close href="#/app/agency/allclients">
           All Clients
         </ion-item>
-        <ion-item menu-close href="#/app/agency/casemanager">
-          Case Manager
-        </ion-item>
         <ion-item menu-close href="#/app/agency/client">
           client
-        </ion-item>
-        <ion-item menu-close href="#/app/agency/home">
-          Agency home
         </ion-item>
         <ion-item menu-close href="#/app/agency/newentry">
           New Entry
         </ion-item>
         <ion-item menu-close href="#/app/coc/data">
           CoC Data
-        </ion-item>
-        <ion-item menu-close href="#/app/coc/home">
-          CoC Home
         </ion-item>
       </ion-list>
     </ion-content>

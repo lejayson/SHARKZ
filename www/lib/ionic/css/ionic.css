@@ -3590,7 +3590,7 @@ cite {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: #000;
+  color: #717171;
   font-weight: 500;
   font-family: "-apple-system", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif;
   line-height: 1.2; }
@@ -3894,7 +3894,7 @@ a.subdued {
   @media (min--moz-device-pixel-ratio: 1.5), (-webkit-min-device-pixel-ratio: 1.5), (min-device-pixel-ratio: 1.5), (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
     .bar {
       border: none;
-      background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);
+      /*background-image: linear-gradient(0deg, #ddd, #ddd 50%, transparent 50%);*/
       background-position: bottom;
       background-size: 100% 1px;
       background-repeat: no-repeat; } }
@@ -3925,7 +3925,6 @@ a.subdued {
   .bar.bar-stable {
     border-color: #b2b2b2;
     background-color: #f8f8f8;
-    background-image: linear-gradient(0deg, #b2b2b2, #b2b2b2 50%, transparent 50%);
     color: #444; }
     .bar.bar-stable .title {
       color: #444; }
@@ -4665,7 +4664,7 @@ a.subdued {
   background-image: none; }
 
 .tabs-striped.tabs-background-positive .tabs {
-  background-color: #387ef5;
+  background-color: #64bf67;
   background-image: none; }
 
 .tabs-striped.tabs-background-calm .tabs {
@@ -4834,7 +4833,7 @@ a.subdued {
 .tabs-background-positive > .tabs {
   background-color: #387ef5;
   background-image: linear-gradient(0deg, #0c60ee, #0c60ee 50%, transparent 50%);
-  border-color: #0c60ee; }
+    border-color: #6ac36d; }
 
 .tabs-background-calm .tabs,
 .tabs-background-calm > .tabs {
@@ -5796,7 +5795,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
 .item .item-content.active,
 .item .item-content.activated {
   border-color: #ccc;
-  background-color: #D9D9D9; }
+  background-color: transparent; }
   .item.active.item-complex > .item-content,
   .item.activated.item-complex > .item-content,
   .item-complex.active .item-content.item-complex > .item-content,
@@ -5996,7 +5995,7 @@ button.item.item-complex {
   z-index: 2;
   padding: 16px 49px 16px 16px;
   border: none;
-  background-color: #fff; }
+  background-color: #transparent; }
 
 a.item-content {
   display: block;
@@ -6505,7 +6504,7 @@ button.item.item-button-right {
     .item-left-edit.visible.active {
       opacity: 1;
       -webkit-transform: translate3d(8px, 0, 0);
-      transform: translate3d(8px, 0, 0); }
+      transform: translate3d(0px, 0, 0); }
 
 .list-left-editing .item-left-edit {
   -webkit-transition-delay: 125ms;
@@ -6608,7 +6607,7 @@ button.item.item-button-right {
  */
 .list {
   position: relative;
-  padding-top: 1px;
+  padding-top: 0px;
   padding-bottom: 1px;
   padding-left: 0;
   margin-bottom: 20px; }
