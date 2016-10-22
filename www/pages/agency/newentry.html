@@ -1,5 +1,20 @@
 <ion-view view-title="Playlist" data-ng-controller="jaysonCtrl">
   <ion-content>
-    <h1>blob</h1>
+    Name: <input type="text" ng-model="client.name"/>
+    Gender: <input type="text" ng-model="client.gender"/>
+    <div ng-app>
+    Allow us to collect Vispdat: <input type="checkbox" ng-model="client.VIperm"/>
+     <div ng-show="client.VIperm">
+        <p>vispdat</p>
+      </div>
+    </div>
+    Allow us to collect Photos: <input type="checkbox" ng-model="client.PICperm"/>
+     <div ng-show="client.PICperm">
+        <p>Photo</p>
+      </div>
+    </div>
+    <br />
+    <button ng-click="addClient()">Add Client</button>
+    <button ng-click="assignClient()"">Assign Case Manager</button>
   </ion-content>
 </ion-view>
