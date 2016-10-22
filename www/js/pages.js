@@ -71,11 +71,10 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
   })
 
   .state('app.agencyclient', {
-    url: '/agency/client',
+    url: '/agency/client/:id',
     views: {
       'menuContent': {
-        templateUrl: 'pages/agency/client.html',
-        controller: 'clientCtrl'
+        templateUrl: 'pages/agency/client.html'
       }
     }
   })

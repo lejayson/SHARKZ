@@ -19,7 +19,7 @@ USE THIS TO NAVGIATE THROUGH content
 --->
 
 
-<ion-view view-title="Jane Doe">
+<ion-view view-title="Client Detail" data-ng-controller="clientCtrl">
 
   <!--- 001. Navigation Bar --->
   <ion-nav-bar class="green-nav">
@@ -73,7 +73,7 @@ USE THIS TO NAVGIATE THROUGH content
                     <div class="row">
 
                       <div class="col text-center">
-                        <span class="profile-number">10.8.12</span> Admitted
+                        <span class="profile-number">{{clientEntryDate}}</span> Admitted
                       </div>
 
                       <div class="col text-center">
@@ -93,21 +93,21 @@ USE THIS TO NAVGIATE THROUGH content
 
                 <!--- 009. Client Information --->
                 <div class="container">
-                  <p><span class="h4">Jane Doe</span> <span class="float-right"><b>ID</b> 0000912</span> </p>
+                  <p><span class="h4">{{clientInfo.First_Name}} {{clientInfo.Middle_Name}} {{clientInfo.Last_Name}}</span> <span class="float-right"><b>ID: </b>{{clientInfo.UserID}}</span> </p>
                   <p>Through our discovery session, we learn that her last permanent address was in Chicago. She came to St. Louis with her children to escape a violent domestic situation, does not have a support system here and needs emergency housing.
                     She did not complete her high school education, needs assistance finding and subsidizing a permanent housing solution and likely would benefit from parenting skills classes.</p>
                   <div class="profile-details">
-                    <p><span class="h5">Age</span>22</span>
+                    <p><span class="h5">Age</span>{{clientAge}}</span>
                     </p>
-                    <p><span class="h5">Date of Birth</span>October 10, 1994</span>
+                    <p><span class="h5">Date of Birth</span>{{clientInfo.DOB}}</span>
                     </p>
-                    <p><span class="h5">Address</span>2910 A street Name</span>
+                    <p><span class="h5">Date of Entry</span>{{clientInfo.Date_Created}}</span>
                     </p>
                     <p><span class="h5">Phone Number</span>000.000.0000</span>
                     </p>
                     <p><span class="h5">Email</span>theiremail@email.com</span>
                     </p>
-                    <p><span class="h5">SSN</span>310-20-2081</span>
+                    <p><span class="h5">SSN</span>{{clientInfo.SSN}}</span>
                     </p>
                   </div>
                 </div>
@@ -125,7 +125,7 @@ USE THIS TO NAVGIATE THROUGH content
                       <span class="float-right ">
                         <button class="program-button button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
 
-                        <button class="program-button button button-icon icon ion-ios-plus-outline" ng-click=""></button>
+                        <button class="program-button button button-icon icon ion-ios-plus-outline" ng-click="openServicePanel()"></button>
 
                       </span>
                     </p>
@@ -136,10 +136,10 @@ USE THIS TO NAVGIATE THROUGH content
 
                   <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
 
-                    <ion-item ng-repeat="item in items" item="item" href="#/item/{{item.id}}" class="profile-program-list">
-                      <span class="program-name">{{ item.id }}</span>
-                      <p class="program-description">{{ item.description }}</p>
-                      <ion-delete-button class="ion-minus program-delete-button" ng-click="onItemDelete(item)">
+                    <ion-item ng-repeat="item in houseitems" item="item" href="#/item/{{item.id}}" class="profile-program-list">
+                      <span class="program-name">{{ item.Service }}</span>
+                      <p class="program-description">{{ item.Description }}</p>
+                      <ion-delete-button class="ion-minus program-delete-button" ng-click="onItemDelete($index)">
                       </ion-delete-button>
                     </ion-item>
 
@@ -153,8 +153,33 @@ USE THIS TO NAVGIATE THROUGH content
             <!--- 011. Employment Programs --->
             <ion-slide>
               <ion-content scroll="true">
-                <div class="container">
-                  test 2
+                <div class="background-color-grey">
+                  <div class="profile-program-header">
+
+                    <p><span class="h4">Employment Programs</span>
+                      <span class="float-right ">
+                        <button class="program-button button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+
+                        <button class="program-button button button-icon icon ion-ios-plus-outline" ng-click="openEmploymentPanel()"></button>
+
+                      </span>
+                    </p>
+
+
+                  </div>
+
+
+                  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+
+                    <ion-item ng-repeat="item in empitems" item="item" href="#/item/{{item.id}}" class="profile-program-list">
+                      <span class="program-name">{{ item.Service }}</span>
+                      <p class="program-description">{{ item.Description }}</p>
+                      <ion-delete-button class="ion-minus program-delete-button" ng-click="onEmploymentDelete($index)">
+                      </ion-delete-button>
+                    </ion-item>
+
+                  </ion-list>
+
                 </div>
               </ion-content>
             </ion-slide>
@@ -163,8 +188,33 @@ USE THIS TO NAVGIATE THROUGH content
             <!--- 012. Health Programs --->
             <ion-slide>
               <ion-content scroll="true">
-                <div class="container">
-                  test 2
+                <div class="background-color-grey">
+                  <div class="profile-program-header">
+
+                    <p><span class="h4">Medical Programs</span>
+                      <span class="float-right ">
+                        <button class="program-button button button-icon icon ion-ios-minus-outline" ng-click="data.showDelete = !data.showDelete; data.showReorder = false"></button>
+
+                        <button class="program-button button button-icon icon ion-ios-plus-outline" ng-click="openMedicalPanel()"></button>
+
+                      </span>
+                    </p>
+
+
+                  </div>
+
+
+                  <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
+
+                    <ion-item ng-repeat="item in meditems" item="item" href="#/item/{{item.id}}" class="profile-program-list">
+                      <span class="program-name">{{ item.Service }}</span>
+                      <p class="program-description">{{ item.Description }}</p>
+                      <ion-delete-button class="ion-minus program-delete-button" ng-click="onMedicalDelete($index)">
+                      </ion-delete-button>
+                    </ion-item>
+
+                  </ion-list>
+
                 </div>
               </ion-content>
             </ion-slide>
@@ -181,7 +231,7 @@ USE THIS TO NAVGIATE THROUGH content
                       <span class="message-name">{{ item.id }}</span>
                       <span class="message-date float-right">{{ item.date}}</span>
                       <p class="message-content">{{ item.description }}</p>
-                      <ion-delete-button class="ion-minus program-delete-button" ng-click="onItemDelete(item)">
+                      <ion-delete-button class="ion-minus program-delete-button" ng-click="onItemDelete()">
                       </ion-delete-button>
                     </ion-item>
 
@@ -207,5 +257,6 @@ USE THIS TO NAVGIATE THROUGH content
       </div>
 
     </ion-content>
+
   </ion-pane>
 </ion-view>

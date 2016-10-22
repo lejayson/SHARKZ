@@ -1,4 +1,4 @@
-function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase){
+function arunCtrl($scope, $state, $http, $firebaseObject, $firebaseArray, $firebase){
 
   $scope.filterOptions = [{"Veteran": 1}, {"Non-Veteran": 0}, {"ALL": ""}];
   $scope.volunteers = [];
@@ -35,6 +35,10 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase){
   $scope.propertyName = 'id';
   $scope.reverse = false;
 
+
+  $scope.clientDetail =  function(id){
+    $state.go("app.agencyclient", {id: id});
+  }
   $scope.sortBy = function(propertyName) {
     if ($scope.reverse == true){
       $scope.reverse = false;
@@ -55,4 +59,4 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase){
   }
 
 }
-angular.module("SHARKZ").controller("arunCtrl", ["$scope", "$http", "$firebaseObject", "$firebaseArray", "firebase", arunCtrl]);
+angular.module("SHARKZ").controller("arunCtrl", ["$scope", "$state", "$http", "$firebaseObject", "$firebaseArray", "firebase", arunCtrl]);
