@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  $ionicModal.fromTemplateUrl('pages/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
@@ -41,16 +41,102 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+
+.controller('allclientsCtrl', function($scope, $state, $ionicSlideBoxDelegate) {
+
+  $scope.open = function() {
+    $state.go('tabs.home', {});
+  };
+
+  $scope.buttons = [{
+    name: 'Open'
+  }, {
+    name: 'Completed'
+  }, {
+    name: 'Closed'
+  }];
+
+  $scope.slide = function($index) {
+    $scope.current = $index;
+    $ionicSlideBoxDelegate.slide($index);
+  }
+
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+.controller('clientCtrl', function($scope, $state, $ionicSlideBoxDelegate, $ionicScrollDelegate, $timeout) {
+
+  $timeout(function() {
+   $ionicScrollDelegate.$getByHandle('messages').scrollBottom(true);
+ });
+
+  $scope.data = {
+    showDelete: false
+  };
+
+
+  $scope.onItemDelete = function(item) {
+    $scope.items.splice($scope.items.indexOf(item), 1);
+  };
+
+  $scope.items = [{
+    id: 'General Equivalency Diploma GED Program',
+    description: 'improves English, math, social studies, and science skills to prepare for GED test'
+  }, {
+    id: 'General Equivalency Diploma GED Program',
+    description: 'improves English, math, social studies, and science skills to prepare for GED test'
+  }, {
+    id: 'General Equivalency Diploma GED Program',
+    description: 'improves English, math, social studies, and science skills to prepare for GED test'
+  }, {
+    id: 'General Equivalency Diploma GED Program',
+    description: 'improves English, math, social studies, and science skills to prepare for GED test'
+  }];
+
+  $scope.messages = [{
+    id: 'Kim',
+    date: '9:20am 10.19.2016',
+    description: 'Hello'
+  }, {
+    id: 'Jayson',
+    date: '9:20am 10.19.2016',
+    description: 'How are you'
+  }, {
+    id: 'Jayson',
+    date: '9:20am 10.19.2016',
+    description: 'I am good, you?'
+  }, {
+    id: 'Jayson',
+    date: '9:20am 10.19.2016',
+    description: 'I am good, you?'
+  }, {
+    id: 'Jayson',
+    date: '9:20am 10.19.2016',
+    description: 'I am good, you?'
+  }, {
+    id: 'Kim',
+    date: '9:20am 10.19.2016',
+    description: 'Ok'
+  }];
+
+
+  $scope.open = function() {
+    $state.go('tabs.home', {});
+  };
+
+  $scope.buttons = [{
+    name: 'lnr lnr-user'
+  }, {
+    name: 'lnr lnr-home'
+  }, {
+    name: 'lnr lnr-briefcase'
+  }, {
+    name: 'lnr lnr-heart'
+  }, {
+    name: 'lnr lnr-bubble'
+  }];
+
+  $scope.slide = function($index) {
+    $scope.current = $index;
+    $ionicSlideBoxDelegate.slide($index);
+  }
+})
