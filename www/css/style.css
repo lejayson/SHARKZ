@@ -7,6 +7,15 @@
 
 */
 
+.activated {
+  background-color: #455445;
+  color: #fff;
+}
+
+.h4 {
+  font-weight: 500;
+}
+
 .menu .scroll-content {
     z-index: 10;
     background-color: #4d9a50;
@@ -250,39 +259,49 @@ button.button.button-block.login {
 
 .home.createnew {
   width: 100%;
-  height: 33%;
+  height: 50%;
   display: table;
   background-color: #64bf7e;
   border-radius: 0px;
+  border-bottom: 3px solid #62b265;
 }
 
 .home.viewclients {
-  width: 50%;
-  height: 33%;
+  width: 33.3%;
+  height: 50%;
   display: table;
-  background-color: #64bf9e;
+  background-color: #64bfbe;
   border-radius: 0px;
   float: left;
   font-size: .8em;
 }
 
 .home.agencystatus {
-  width: 50%;
-  height: 33%;
+  width: 33.3%;
+  height: 50%;
   display: table;
-  background-color: #64bf9e;
+  background-color: #64bfbe;
   border-radius: 0px;
   float:left;
     font-size: .8em;
 }
 
 .home.datareports {
-  width: 100%;
-  height: 33%;
+  width: 33.4%;
+  height: 50%;
   display: table;
   background-color: #64bfbe;
   border-radius: 0px;
     font-size: .8em;
+    float:left;
+}
+
+.button-background {
+  display: block;
+  height: 100%;
+  width:100%;
+  background-color: #64bfbe;
+
 }
 
 a.home.center {
@@ -325,7 +344,7 @@ a.home.center {
 
 .agency-buttons5 {
   position: absolute;
-  top: 70%;
+  top: 80%;
 }
 
 
@@ -341,7 +360,9 @@ a.home.center {
   border-radius: 0px;
 }
 
-
+.agency-content.scroll-content {
+  height: 80%;
+}
 
 /*---------- .003 Home Page ----------*/
 .home-container {
@@ -422,12 +443,13 @@ a.home.center {
   width: 30px;
   background-color: rgba(0, 0, 0, .1);
   border: 0px;
+  display: table;
 }
 
 .profile-expand>.lnr {
   text-align: center;
   position: relative;
-  display: block;
+  display: table-cell;
 }
 
 .profile-navigation {
@@ -441,18 +463,21 @@ a.home.center {
 }
 
 .profile-navigation-bar>a>span {
-  top: 35%;
-  display: block;
   position: relative;
+  vertical-align: middle;
+  display: table-cell;
 }
 
 .profile-navigation-bar>.button:first-child, .profile-navigation-bar>.button, .profile-navigation-bar>.button:last-child {
   border-radius: 0px;
   background-color: #f9f9f9;
-  line-height: 60px;
+  line-height: 0px;
   font-size: 1.5em;
   border-width: 0px 1px 1px 0px;
+  display: table;
+  width: 20.2%;
   border-color: #e8e8e8;
+  height: 100%;
 }
 
 .profile-navigation-bar>a.button.activated {
