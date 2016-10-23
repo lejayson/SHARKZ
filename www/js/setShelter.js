@@ -13,6 +13,7 @@ function setShelterCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $
     
     $scope.privCM.$loaded().then(function() {
       $scope.privCM[0].User_ID = clientid;
+      $scope.privCM[0].occupy = 1;
       $scope.privCM.$save(0).then(function(ref) {
         ref.key === $scope.privCM[0].$id; // true
       });
