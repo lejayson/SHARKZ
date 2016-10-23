@@ -3,7 +3,6 @@ function toPages(table, itemPerPage){
   var arr = [];
   var tmp = [];
   var count = 0;
-
   numPage = table.length/itemPerPage;
 
   for (i = 0; i < numPage; i++){
@@ -83,6 +82,7 @@ function increase(num, max){
   if(num < max){
     num = num + 1;
   }
+  console.log(max);
   return num;
 }
 

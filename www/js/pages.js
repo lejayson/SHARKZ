@@ -69,20 +69,17 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     views: {
       'menuContent': {
         templateUrl: 'pages/coc/allclients.html',
-        controller: 'arun2Ctrl'
       }
     }
   })
-
-  .state('app.cocfunding', {
-    url: '/coc/funding',
+  .state('app.cocallagencies', {
+    url: '/coc/allagencies',
     views: {
       'menuContent': {
-        templateUrl: 'pages/coc/funding.html'
+        templateUrl: 'pages/coc/allAgencies.html',
       }
     }
   })
-
 
   .state('app.cocshelters', {
     url: '/coc/shelters',

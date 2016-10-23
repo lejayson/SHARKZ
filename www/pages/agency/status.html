@@ -11,36 +11,56 @@
   <ion-pane>
     <ion-content scroll="false" class="">
 
-      <div class="casefiles-slider" data-ng-controller="arunCtrl">
-
-
+      <div class="casefiles-slider" data-ng-controller="agencyCtrl">
 
             <ion-content scroll="true" delegate-handle="messages">
               <div class="container clientinfo">
 
-
-
                 <!-- Table generation -->
                 <div>
+                  <ion-item class="client-list">
+                    <div class="client-detail">
+                      <span class="client-name"><b>{{ agency.Agency }}</b></span>
+                      <span class="client-age"><b>Hours of Operation: </b> {{ agency.hours_ops }} </span>
+                      <span class="client-score"> <c> 800 N. Tucker Blvd. St. Louis, MO 63101 </c> </span>
+                    </div>
+                  </ion-item>
 
+                  <ion-item class="client-list">
+                    <div class="client-detail">
+                      <span class="client-name"><a> Temporary Shelter: </a> {{ agency.num_beds }} available bed</span>
+                      <span class="client-score"><b>Male: </b> {{agency.male_beds}} <b> Female: </b> {{agency.female_beds}}</span>
+                      <span class="client-name"><a> Meal Served: 325</a> </span>
+
+                    </div>
+                  </ion-item>
+
+                  <p>Clients: </p>
+                  <ion-item class="client-list">
+                    <div class="client-detail">
+                      <span class="client-name"><a> Total: </a> {{clients.length}}</span>
+                      <span class="client-age"><b> Male: </b> {{male}} <b> Female: </b> {{female}}</span>
+                      <span class="client-score"><b>Children: </b> {{children}}</span>
+                      <span class="client-score"><b>Asian: </b> {{Asian}}</span>
+                      <span class="client-score"><b>Black: </b> {{Black}}</span>
+                      <span class="client-score"><b>NativeHIOtherPacific: </b> {{NativeHIOtherPacific}}</span>
+                      <span class="client-score"><b>White: </b> {{White}}</span>
+                      <span class="client-score"><b>Veteran: </b> {{Veteran}}</span>
+                    </div>
+                  </ion-item>
 
                   <div class="client-fulllist">
-                    <ion-list ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
-                      <ion-item class="client-list">
-
-                          <img class="float-left" src="img\placeholder.png">
-
+                    <p>Case Managers: </p>
+                    <ion-list ng-repeat="v in pages[currentPage1]">
+                      <ion-item>
                           <div class="client-detail">
-                            <span class="client-name">{{ v.First_Name }} {{ v.Last_Name }}</span>
-                            <span class="client-age"><b>Age</b> {{ v.age }} {{ v.vet }}</span>
-                            <span class="client-score"><b>VISPDAT Score</b> {{ v.score }}</span>
-                            <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>
-                            <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
+                            <span class="client-age"><b>Name</b> {{ v.First_Name }} {{ v.Last_Name }}</span>
+                            <span class="client-score"><b>Case Manager ID: </b> {{ v.CM_ID }}</span>
                           </div>
                       </ion-item>
                     </ion-list>
                   </div>
-                  <button ng-click="currentPage1 = decreasePage(currentPage1)"><<</button> {{currentPage1 + 1}}/{{pages.length}}
+                  <button ng-click="currentPage1 = decreasePage(currentPage1)"><<</button> {{currentPage1+1}}/{{pages.length}}
                   <button ng-click="currentPage1 = increasePage(currentPage1, pages.length)">>></button>
 
                 </div>
