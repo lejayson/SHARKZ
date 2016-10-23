@@ -1,6 +1,6 @@
 function clientCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ionicModal, $ionicSlideBoxDelegate ,$compile, $http, $timeout) {
   var rootRef = firebase.database().ref();
-  var objRef = rootRef.child('P&P').child($stateParams.id);
+  var objRef = rootRef.child('St_Patrick').child($stateParams.id);
   var obj = $firebaseObject(objRef);
   var clientID;
   $scope.user = {};
@@ -96,8 +96,8 @@ function clientCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ioni
   $scope.openServicePanel = function() {
     $scope.housingmodal.show();
   };
-  
-  
+
+
   // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('pages/agency/assignshelter.html', {
     scope: $scope
