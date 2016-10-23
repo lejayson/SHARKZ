@@ -69,20 +69,17 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     views: {
       'menuContent': {
         templateUrl: 'pages/coc/allclients.html',
-        controller: 'arun2Ctrl'
       }
     }
   })
-
-  .state('app.cocfunding', {
-    url: '/coc/funding',
+  .state('app.cocallagencies', {
+    url: '/coc/allagencies',
     views: {
       'menuContent': {
-        templateUrl: 'pages/coc/funding.html'
+        templateUrl: 'pages/coc/allAgencies.html',
       }
     }
   })
-
 
   .state('app.cocshelters', {
     url: '/coc/shelters',
@@ -141,39 +138,11 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     }
   })
 
-  .state('app.agencyallagencies', {
-    url: '/agency/allagencies',
-    views: {
-      'menuContent': {
-        templateUrl: 'pages/coc/allAgencies.html',
-      }
-    }
-  })
-
   .state('app.agencystatus', {
     url: '/agency/status',
     views: {
       'menuContent': {
         templateUrl: 'pages/agency/status.html',
-      }
-    }
-  })
-
-  .state('app.agencydata', {
-    url: '/agency/data',
-    views: {
-      'menuContent': {
-        templateUrl: 'pages/agency/data.html',
-        controller: 'agencyDataCtrl'
-      }
-    }
-  })
-
-  .state('app.agencyassignshelter', {
-    url: '/agency/assignshelter',
-    views: {
-      'menuContent': {
-        templateUrl: 'pages/agency/assignshelter.html',
       }
     }
   })
