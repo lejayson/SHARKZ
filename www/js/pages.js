@@ -95,11 +95,10 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
   })
 
   .state('app.agencyclient', {
-    url: '/agency/client',
+    url: '/agency/client/:id',
     views: {
       'menuContent': {
-        templateUrl: 'pages/agency/client.html',
-        controller: 'clientCtrl'
+        templateUrl: 'pages/agency/client.html'
       }
     }
   })
@@ -127,7 +126,6 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     views: {
       'menuContent': {
         templateUrl: 'pages/agency/allclients.html',
-        controller: 'arunCtrl'
       }
     }
   })
