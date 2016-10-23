@@ -1,16 +1,16 @@
-<ion-modal-view data-ng-controller="manageEmploymentCtrl">
-  <ion-header-bar>
-  <h1 class="title">Login</h1>
-  <div class="buttons">
-    <button class="button button-clear" ng-click="closeEmploymentPanel()">Close</button>
-  </div>
-  </ion-header-bar>
-  <ion-content>
+<ion-modal-view data-ng-controller="manageEmploymentCtrl" hide-nav-bar="true" class="addservice" scroll="false">
+  <ion-content class="addservicemodal" scroll="true">
+
+<div class="container modal-server">
     <ul>
       <li ng-repeat="program in EmploymentProg">
-        <p>{{program.Service}}</p><p>{{program.Description}}</p>
-        <button ng-click="addServices({{clientInfo.UserID}}, $index)">Add Service</button>
+
+        <button ng-click="addServices({{clientInfo.UserID}}, $index)" class="service-button">
+          <p class="program-name2">{{program.Service}}</p><p>{{program.Description}}</p>
+        </button>
       </li>
     </ul>
+</div>
   </ion-content>
+<button class="closewindow" ng-click="closeEmploymentPanel()">Close Window</button>
 </ion-modal-view>
