@@ -17,6 +17,7 @@ function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $t
   }
 
 
+
   $scope.toggleCamera = function() {
     if ($scope.client.PICperm) {
     	options = {

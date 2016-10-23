@@ -828,16 +828,109 @@ p.message-content.ng-binding {
 .agency-half {
   display:inline-block;
   text-align: center;
-  width: 50%;
+  width: 100%;
   float: left;
-  padding-top:35px;
-  padding-bottom: 15px;
+  padding:35px;
+  background-color: #64bfbe;
+  color: #fff;
 }
 
 .data-header {
-  font-size: 2.5em;
+  padding-top:10px;
+  font-size: 3em;
   display: block;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
+}
+
+#achartone svg, #acharttwo svg, #achartfour svg  {
+  width:100%;
+  height: 200px;
+  margin: 0 auto;
+  display: block;
+}
+
+.half {
+  width: 49.5%;
+  display: inline-block;
+}
+
+.assignbutton {
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+
+.assignbutton > button  {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50px;
+  background-color: #64bf67;
+  color: #fff;
+}
+
+.assignbutton > .button.activated {
+  background-color: #455445;
+  border: 0px;
+}
+
+
+.modal-backdrop-bg {
+    background-color: rgba(0,0,0,0.2);
+}
+
+.addservice {
+  min-height: 50%;
+  width: 70%;
+height: 70%;
+top: 15%;
+left: 15%;
+right: 15%;
+bottom: 15%;
+}
+
+.addservicemodal {
+  overflow: scroll;
+  height: 90%;
+}
+
+.container.modal-server {
+  height: 100%;
+}
+
+.service-button {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  padding:15px;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+p.program-name2 {
+  font-size: 1.3em;
+  font-weight: 300;
+  color: #64bf67;
+}
+
+.service-button p {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.service-button.activated {
+  border-color: #64bf67;
+}
+
+
+.closewindow {
+  height: 10%;
+  width: 100%;
+  z-index: 1000;
+  background-color: #64bf67;
+  color: #fff;
+  position: absolute;
+  bottom: 0px;
+  border: 0px;
+  padding: 0px;
 }
 
 .assignbutton {
