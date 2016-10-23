@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+<ion-view view-title="Casefiles" data-ng-controller="compAgenciesCtrl">
+=======
 <ion-view view-title="Casefiles">
+>>>>>>> refs/remotes/origin/master
   <ion-nav-bar class="green-nav">
     <ion-nav-buttons side="left">
       <button menu-toggle="left" class="green-nav button button-icon icon ion-navicon"></button>
@@ -45,36 +49,21 @@
 
             <ion-content class="client-scroll" scroll="true" delegate-handle="messages">
               <div class="container clientinfo">
-
-
-                <div class="button-bar clientinfo">
-                  <a class="button" ng-click="sortBy('First_Name')">first name</a>
-                  <a class="button" ng-click="sortBy('Last_Name')">last name</a>
-                  <a class="button" ng-click="sortBy('score')">score</a>
-                  <a class="button" ng-click="sortBy('age')">Age</a>
-                </div>
-
                 <!-- Table generation -->
                 <div>
 
 
                   <div class="client-fulllist">
-                    <ion-list ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
+                    <ion-list ng-repeat="v in agenciesArr">
                       <ion-item class="client-list">
-                        <a class="client-link" ng-href="#/app/agency/client">
-
-                          <img class="float-left" src="img\placeholder.png">
 
                           <div class="client-detail">
                             <span class="client-name">{{ v.First_Name }} {{ v.Last_Name }}</span>
-                            <span class="client-age"><b>Age</b> {{ v.age }} {{ v.vet }}</span>
-                            <span class="client-score"><b>VISPDAT Score</b> {{ v.score }}</span>
-                            <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>
-                            <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
+                            <span>{{ v.Agency}}</span></br>
+                            <span><b>Hours of Operation:</b> {{ v.hours_ops }}</span></br>
+                            <span><b>Male Beds:</b> {{ v.male_beds }}</span></br>
+                            <span><b>Number of Beds:</b> {{v.num_beds}}</span>
                           </div>
-                        </a>
-                        <button ng-click="remove(v)">remove</button>
-                        <button ng-click="edit(v)">edit</button>
                       </ion-item>
                     </ion-list>
                   </div>
@@ -84,19 +73,6 @@
                 </div>
               </div>
             </ion-content>
-
-
-
-          </ion-slide>
-
-          <ion-slide>
-            2
-          </ion-slide>
-
-          <ion-slide>
-            3
-          </ion-slide>
-
         </ion-slide-box>
         </div>
 
