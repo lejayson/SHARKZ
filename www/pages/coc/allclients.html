@@ -58,7 +58,6 @@
                 <!-- Table generation -->
                 <div>
 
-
                   <div class="client-fulllist">
                     <ion-list ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
                       <ion-item class="client-list">
@@ -69,7 +68,7 @@
                           <div class="client-detail">
                             <span class="client-name">{{ v.First_Name }} {{ v.Last_Name }}</span>
                             <span class="client-age"><b>Age</b> {{ v.age }} {{ v.vet }}</span>
-                            <span class="client-score"><b>VISPDAT Score</b> {{ v.score }}</span>
+                            <span class="client-score"><b>VISPDAT Score</b> {{ v.Score }}</span>
                             <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>
                             <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
                           </div>
