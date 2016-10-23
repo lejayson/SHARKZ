@@ -1,4 +1,4 @@
-function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $timeout, $cordovaCamera, $ionicModal ,$ionicPlatform) {
+function jaysonCtrl($scope, $state, $firebaseObject, $firebaseArray, $compile, $http, $timeout, $cordovaCamera, $ionicModal ,$ionicPlatform) {
   $scope.client = {};
   var rootRef = firebase.database().ref();
   var arrRef = rootRef.child('simpleClient');
@@ -78,5 +78,5 @@ function loginCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $ti
     console.log($scope.loginData.username);
   }
 };
-angular.module("SHARKZ").controller("jaysonCtrl", ["$scope", "$firebaseObject", "$firebaseArray", "$compile", "$http", "$timeout", "$cordovaCamera", "$ionicModal", "$ionicPlatform", jaysonCtrl]),
+angular.module("SHARKZ").controller("jaysonCtrl", ["$scope", "$state", "$firebaseObject", "$firebaseArray", "$compile", "$http", "$timeout", "$cordovaCamera", "$ionicModal", "$ionicPlatform", jaysonCtrl]),
 angular.module("SHARKZ").controller("loginCtrl", ["$scope", "$firebaseObject", "$firebaseArray", "$compile", "$http", "$timeout", "$cordovaCamera", "$ionicPlatform", loginCtrl]);
