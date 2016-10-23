@@ -1,0 +1,18 @@
+<ion-modal-view data-ng-controller="setShelterCtrl">
+  <ion-header-bar>
+  <h1 class="title">Shelter</h1>
+  <div class="buttons">
+    {{clientInfo.gender}}
+    <button class="button button-clear" ng-click="closeSetShelterPanel()">Close</button>
+  </div>
+  </ion-header-bar>
+  <ion-content>
+    <ul>
+      <li ng-repeat="bed in Shelters">
+        
+        <p>Category: {{ bed.Category }}</p><p>Requirements: {{ bed.Requirement }}</p><p>Shelter: {{ bed.shelter_ID }}</p>
+        <button ng-click="setShelter({{bed.Bed_ID}}, {{clientInfo.UserID}})">Assign Shelter</button>
+      </li>
+    </ul>
+  </ion-content>
+</ion-modal-view>
