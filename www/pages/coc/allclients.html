@@ -7,20 +7,10 @@
   </ion-nav-bar>
 
 
-  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
-    <div class="tabs">
-      <a ng-repeat="button in buttons" ng-class="{'active': $index === current}" ng-click="slide($index)" class="tab-item">{{ button.name }}</a>
-
-    </div>
-  </div>
-
   <ion-pane>
-    <ion-content scroll="false" class="has-tabs-top">
+    <ion-content scroll="false">
 
       <div class="casefiles-slider" data-ng-controller="arun2Ctrl">
-        <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
-
-          <ion-slide>
 
             <div class="casefile-search-box">
               <div class="item item-input-inset">
@@ -51,8 +41,8 @@
                 <div class="button-bar clientinfo">
                   <a class="button" ng-click="sortBy('First_Name')">first name</a>
                   <a class="button" ng-click="sortBy('Last_Name')">last name</a>
-                  <a class="button" ng-click="sortBy('score')">score</a>
-                  <a class="button" ng-click="sortBy('age')">Age</a>
+                  <a class="button score" ng-click="sortBy('score')">score</a>
+                  <a class="button age" ng-click="sortBy('age')">Age</a>
                 </div>
 
                 <!-- Table generation -->
@@ -88,17 +78,7 @@
 
 
 
-          </ion-slide>
 
-          <ion-slide>
-            2
-          </ion-slide>
-
-          <ion-slide>
-            3
-          </ion-slide>
-
-        </ion-slide-box>
         </div>
 
     </ion-content>

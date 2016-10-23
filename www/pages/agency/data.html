@@ -47,8 +47,8 @@
 
           <ion-slide>
 
-<ion-pane>
-    <ion-content scroll="false" class="has-tabs-top">
+
+    <ion-content scroll="false">
 
       <div class="casefiles-slider" data-ng-controller="arun2Ctrl">
         <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
@@ -66,9 +66,6 @@
                 <button class="button list-button">
                   <i class="icon ion-android-menu"></i>
                 </button>
-                <select class="client-status" size="2" ng-model="selectedOptions.VeteranStatus" ng-options="selected.VeteranStatus as selected.Name for selected in filterOptions">
-                  <option value="">Status</option>
-                </select>
                 <!--
                 <select class="button list-button" ng-model="selectedOptions">
                   <option ng-repeat="f in filterOptions">{{f}}</option>
@@ -87,9 +84,8 @@
                     <ion-list ng-repeat="v in agenciesArr">
                       <ion-item class="client-list">
 
-                          <div class="client-detail">
-                            <span class="client-name">{{ v.First_Name }} {{ v.Last_Name }}</span>
-                            <span>{{ v.Agency}}</span></br>
+                          <div class="comparison-info">
+                            <span class="h3">{{ v.Agency}}</span></br>
                             <span><b>Hours of Operation:</b> {{ v.hours_ops }}</span></br>
                             <span><b>Status:</b> {{v.Status}}</span></br>
                             <span><b>Male Pop.:</b> {{ v.male }}</span>, <span><b>Female Pop.:</b> {{ v.female }}</span></br>
@@ -111,8 +107,8 @@
         </div>
 
     </ion-content>
-  </ion-pane>
-          
+
+
           </ion-slide>
 
           <ion-slide>
@@ -121,19 +117,16 @@
               <div class="col"><div class="agency-half"><span class="data-header">{{agencyCases}}</span>Open Cases</div></div>
               <div class="col"><div class="agency-half"><span class="data-header">{{myData.length - agencyCases}}</span> Completed</div></div>
             </div>
+<br /><br/>
 
-            
             <div class="row2 graphs">
-              <h2>Data Verification Quality</h2>
+              <h3>Data Verification Quality</h3>
               <div id="achartfive" class="fullwidth"></div>
             </div>
-            
+
+
             <div class="row2 graphs">
-              <div id="charteight" class="fullwidth"></div>
-            </div>
-            
-            <div class="row2 graphs">
-              <h2>Breakdown by Military Branch</h2>
+              <h3>Breakdown by Military Branch</h3>
               <div id="achartthree" class="fullwidth"></div>
             </div>
 

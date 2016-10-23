@@ -10,7 +10,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
 	$scope.globalref = firebase.database().ref().child("global");
 
 	$scope.myData = $firebaseArray($scope.globalref);
-  
+
   $scope.buttons = [{
     name: 'Data Visualization'
   }, {
@@ -293,7 +293,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       },
       hideHover: 'always'
     });
-    
+
     var randnum = Math.random()*50
     var datafunds = [
       {label: "Available", value: Math.round(randnum)},
@@ -308,7 +308,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       labels : ['%'],
       hideHover : true
     }); **/
-    
+
     var tmpone = Math.random();
     var tmptwo = Math.random();
     var tmpthree = Math.random();
@@ -326,7 +326,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       hideHover: 'always'
     });
 	});
-  
+
   var datahous = [
       {label : "2016-01", intake : 10, completed: 9},
       {label : "2016-02", intake : 13, completed: 10},
@@ -341,7 +341,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       {label : "2016-11", intake : 18, completed: 19},
       {label : "2016-12", intake : 25, completed: 26}
   ];
-  
+
   var datahous = [
       {label : "2016-01", intake : 10, completed: 9},
       {label : "2016-02", intake : 13, completed: 10},
@@ -356,7 +356,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       {label : "2016-11", intake : 18, completed: 19},
       {label : "2016-12", intake : 25, completed: 26}
   ];
-  
+
   var datamedi = [
       {label : "2016-01", intake : 13, completed: 10},
       {label : "2016-02", intake : 10, completed: 9},
@@ -371,7 +371,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       {label : "2016-11", intake : 21, completed: 19},
       {label : "2016-12", intake : 20, completed: 21}
   ];
-  
+
   var dataempl = [
       {label : "2016-01", intake : 20, completed: 9},
       {label : "2016-02", intake : 21, completed: 10},
@@ -386,7 +386,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       {label : "2016-11", intake : 5, completed: 16},
       {label : "2016-12", intake : 2, completed: 22}
   ];
-  
+
   var dataserv = [
       {label : "2016-01", intake : 20, completed: 9},
       {label : "2016-02", intake : 23, completed: 10},
@@ -401,23 +401,23 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       {label : "2016-11", intake : 20, completed: 16},
       {label : "2016-12", intake : 19, completed: 23}
   ];
-  
+
   $scope.showHousing = function() {
     $scope.graphservices.setData(datahous);
   }
-  
+
   $scope.showMedical = function() {
     $scope.graphservices.setData(datamedi);
   }
-  
+
   $scope.showEmployment = function() {
     $scope.graphservices.setData(dataempl);
   }
-  
+
   $scope.showServices = function() {
     $scope.graphservices.setData(dataserv);
   }
-  
+
   $scope.showMonth = function() {
     var randnum = Math.random()*50
     var datafunds = [
@@ -442,9 +442,9 @@ function agencyDataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ioni
 	$scope.globalref = firebase.database().ref().child("global");
 
 	$scope.myData = $firebaseArray($scope.globalref);
-  
+
   $scope.buttons = [{
-    name: 'Data Visualization'
+    name: 'Data Graphs'
   }, {
     name: 'Comparison'
   }, {
