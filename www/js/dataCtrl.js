@@ -10,6 +10,10 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
 	$scope.globalref = firebase.database().ref().child("global");
 
 	$scope.myData = $firebaseArray($scope.globalref);
+  
+  $scope.buttons = [
+    {},
+  ];
 
   $scope.countData = function() {
     $scope.tmpasicount = 0;
