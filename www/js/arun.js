@@ -1,36 +1,23 @@
-function arunCtrl($scope, $state, $http, $firebaseObject, $firebaseArray, $firebase){
+function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $state, $ionicSlideBoxDelegate, $ionicScrollDelegated){
 
-  $scope.filterOptions = [{"Veteran": 1}, {"Non-Veteran": 0}, {"ALL": ""}];
+  $scope.filterOptions = [{"Name": "Veteran", "VeteranStatus": 1}, {"Name": "Non-Veteran", "VeteranStatus": 0}, {"Name": "ALL", "VeteranStatus": ""}];
+  $scope.sortOptions1 = ["First_Name", "Last_Name"];
   $scope.volunteers = [];
-  $scope.propertyName = 'id';
+  $scope.propertyName = 'First_Name';
   $scope.reverse = false;
   $scope.itemPerPage = 10;
   $scope.currentPage1 = 0;
-  $scope.currentPage2 = 0;
 
 //Firebase method
   var rootRef = firebase.database().ref();
-  var ppRef = rootRef.child('P&P');
-  var spRef = rootRef.child('St_Patrick');
-  $scope.ppclients = $firebaseArray(ppRef);
-  $scope.spclients = $firebaseArray(spRef);
-  console.log($scope.ppclients);
+  var arrRef = rootRef.child('St_Patrick');
+  $scope.clients = $firebaseArray(arrRef);
 
-  $scope.ppclients.$loaded().then(function(pages) {
-    $scope.pppages = toPages($scope.ppclients, $scope.itemPerPage);
+  $scope.clients.$loaded().then(function(pages) {
+    $scope.clients = getAge($scope.clients);
+    $scope.clients = setVet($scope.clients);
+    $scope.pages = toPages($scope.clients, $scope.itemPerPage);
   });
-  $scope.spclients.$loaded().then(function(pages) {
-    $scope.sppages = toPages($scope.spclients, $scope.itemPerPage);
-  });
-//http + php method
-/***
-  $http.get("http://test.ohai-app.com/Credential/volunteerList.php")
-  .success(function(response) {
-    $scope.volunteers = response.volunteers;
-    $scope.pages = toPages($scope.volunteers, $scope.itemPerPage);
-    console.log($scope.volunteers);
-  });
-***/
 
   $scope.propertyName = 'id';
   $scope.reverse = false;
@@ -49,6 +36,7 @@ function arunCtrl($scope, $state, $http, $firebaseObject, $firebaseArray, $fireb
     $scope.propertyName = propertyName;
   };
 
+
   $scope.decreasePage = function(page) {
     return decrease(page);
     console.log(page);
@@ -56,6 +44,23 @@ function arunCtrl($scope, $state, $http, $firebaseObject, $firebaseArray, $fireb
   $scope.increasePage = function(page, max) {
     return increase(page, max);
     console.log(page);
+  }
+
+  $scope.open = function() {
+    $state.go('tabs.home', {});
+  };
+
+  $scope.buttons = [{
+    name: 'Open'
+  }, {
+    name: 'Completed'
+  }, {
+    name: 'Closed'
+  }];
+
+  $scope.slide = function($index) {
+    $scope.current = $index;
+    $ionicSlideBoxDelegate.slide($index);
   }
 
 }

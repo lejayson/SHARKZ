@@ -6,16 +6,16 @@
     <ion-nav-back-button></ion-nav-back-button>
   </ion-nav-bar>
 
-<!--
+
   <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
     <div class="tabs">
       <a ng-repeat="button in buttons" ng-class="{'active': $index === current}" ng-click="slide($index)" class="tab-item">{{ button.name }}</a>
 
     </div>
   </div>
--->
+
   <ion-pane>
-    <ion-content scroll="false" class="">
+    <ion-content scroll="false" class="has-tabs-top">
 
       <div class="casefiles-slider" data-ng-controller="arunCtrl">
         <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
@@ -33,63 +33,70 @@
                 <button class="button list-button">
                   <i class="icon ion-android-menu"></i>
                 </button>
+                <select class="client-status" ng-model="selectedOptions.VeteranStatus" ng-options="selected.VeteranStatus as selected.Name for selected in filterOptions">
+                  <option value="">Status</option>
+                </select>
+                <!--
                 <select class="button list-button" ng-model="selectedOptions">
                   <option ng-repeat="f in filterOptions">{{f}}</option>
                 </select>
+-->
               </div>
             </div>
 
-            <ion-content scroll="true" class="casefiles-container" delegate-handle="messages">
-              <div class="">
+            <ion-content class="client-scroll" scroll="true" delegate-handle="messages">
+              <div class="container clientinfo">
 
-<!-- Table generation -->
-                <div>
-                  <table>
-                    <tr>
-                      <th>
-                        <button ng-click="sortBy('First_Name')">first name</button>
-                      </th>
-                      <th>
-                        <button ng-click="sortBy('Last_Name')">last name</button>
-                      </th>
-                    </tr>
-                      <td>First_Name</td> <td>Last_Name</td>
-                    <tr ng-repeat="v in pppages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
-                      <td>{{ v.First_Name }}</td> <td>{{ v.Last_Name }}</td> <td>{{ v.Agencies }}</td><td><button ng-click="clientDetail({{v.$id}})">Detail</button></td>
-                    </tr>
-                  </table>
-                  <button ng-click="currentPage1 = decreasePage(currentPage1)"><<</button>
-                  {{currentPage1 + 1}}/{{pppages.length}}
-                  <button ng-click="currentPage1 = increasePage(currentPage1, pppages.length)">>></button>
-
-                  <table>
-                    <tr>
-                      <th>
-                        <button ng-click="sortBy('First_Name')">first name</button>
-                      </th>
-                      <th>
-                        <button ng-click="sortBy('Last_Name')">last name</button>
-                      </th>
-                    </tr>
-                      <td>First_Name</td> <td>Last_Name</td>
-                    <tr ng-repeat="v in sppages[currentPage2] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
-                      <td>{{ v.First_Name }}</td> <td>{{ v.Last_Name }}</td> <td>{{ v.Agencies }}</td><td><button ng-click="clickDetail()">Detail</button></td>
-                    </tr>
-                  </table>
-                  <button ng-click="currentPage2 = decreasePage(currentPage2)"><<</button>
-                  {{currentPage2 + 1}}/{{sppages.length}}
-                  <button ng-click="currentPage2 = increasePage(currentPage2, sppages.length)">>></button>
+                <div class="button-bar clientinfo">
+                  <a class="button" ng-click="sortBy('First_Name')">first name</a>
+                  <a class="button" ng-click="sortBy('Last_Name')">last name</a>
+                  <a class="button" ng-click="sortBy('score')">score</a>
+                  <a class="button" ng-click="sortBy('age')">Age</a>
                 </div>
 
+                <!-- Table generation -->
+                <div>
+
+
+                  <div class="client-fulllist">
+                    <ion-list ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
+                      <ion-item class="client-list">
+                        <a class="client-link" ng-href="#/app/agency/client">
+
+                          <img class="float-left" src="img\placeholder.png">
+
+                          <div class="client-detail">
+                            <button ng-click="clickDetail()">Detail</button>
+                            <span class="client-name">{{ v.First_Name }} {{ v.Last_Name }}</span>
+                            <span class="client-age"><b>Age</b> {{ v.age }} {{ v.vet }}</span>
+                            <span class="client-score"><b>VISPDAT Score</b> {{ v.score }}</span>
+                            <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>
+                            <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
+                          </div>
+                        </a>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+                  <button ng-click="currentPage1 = decreasePage(currentPage1)"><<</button> {{currentPage1 + 1}}/{{pages.length}}
+                  <button ng-click="currentPage1 = increasePage(currentPage1, pages.length)">>></button>
+
+                </div>
               </div>
             </ion-content>
 
 
 
           </ion-slide>
-          
+
+          <ion-slide>
+            2
+          </ion-slide>
+
+          <ion-slide>
+            3
+          </ion-slide>
         </ion-slide-box>
-      </div>
+        </div>
 
     </ion-content>
   </ion-pane>

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
+angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -47,7 +47,9 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     url: '/coc/home',
     views: {
       'menuContent': {
-        templateUrl: 'pages/coc/home.html'
+        //templateUrl: 'pages/coc/home.html' //Use if home pages are split
+        templateUrl: 'pages/home.html',
+        controller: 'homeCtrl'
       }
     }
   })
@@ -56,16 +58,38 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     url: '/coc/data',
     views: {
       'menuContent': {
-        templateUrl: 'pages/coc/data.html'
+        templateUrl: 'pages/coc/data.html',
+        controller: 'dataCtrl'
       }
     }
   })
+
+  .state('app.cocallclients', {
+    url: '/coc/allclients',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/coc/allclients.html',
+      }
+    }
+  })
+
+  .state('app.cocshelters', {
+    url: '/coc/shelters',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/coc/shelters.html',
+      }
+    }
+  })
+
 
   .state('app.agencyhome', {
     url: '/agency/home',
     views: {
       'menuContent': {
-        templateUrl: 'pages/agency/home.html'
+        //templateUrl: 'pages/agency/home.html' //Use if home pages are split
+        templateUrl: 'pages/home.html',
+        controller: 'homeCtrl'
       }
     }
   })
@@ -102,7 +126,7 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase'])
     views: {
       'menuContent': {
         templateUrl: 'pages/agency/allclients.html',
-        controllers: 'arunCtrl'
+        controller: 'arunCtrl'
       }
     }
   })

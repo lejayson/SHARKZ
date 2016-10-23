@@ -7,13 +7,22 @@
 
 */
 
+.activated {
+  background-color: #455445;
+  color: #fff;
+}
+
+.h4 {
+  font-weight: 500;
+}
+
 .menu .scroll-content {
     z-index: 10;
     background-color: #4d9a50;
     top: 100px;
 }
 
-ion-item.item.item-complex {
+.lsidemenu > .list > ion-item.item.item-complex {
     border-color: #6fb272;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -51,6 +60,73 @@ h1.title.menu-title {
   top: 40px;
 }
 
+.client-list {
+  margin-bottom: 15px;
+}
+
+.float-left {
+  float: left;
+}
+
+.client-link {
+  color: #696969;
+}
+
+.client-sort {
+  height: 50px;
+  padding: 0px;
+}
+
+.client-detail {
+  width: 80%;
+  display: inline-block;
+  padding-left: 15px;
+  padding-right: 30px;
+}
+
+.client-name {
+  font-size: 1.1em;
+  padding-bottom: 5px;
+  display:block;
+}
+
+.client-scroll {
+    height: 90%;
+    display: block;
+    position: absolute;
+    top: 10%;
+}
+
+.client-age, .client-score, .client-agency, .client-assigned {
+  font-size: .8em;
+  display: block;
+}
+
+.clientinfo.container {
+  padding-top: 5px;
+}
+
+.client-fulllist {
+  padding-top: 15px;
+}
+
+.clientinfo > a.button {
+  word-wrap: normal;
+    font-size: .8em;
+    text-transform: uppercase;
+}
+
+.client-status {
+  height: 40px;
+  border: 0px;
+  background-color: #f8f8f8;
+  color: #666;
+}
+
+.client-status select option {
+    padding: 3px;
+    text-align:right;
+}
 
 /*---------- .001 General Style ----------*/
 
@@ -167,6 +243,7 @@ button.button.button-block.login {
   height: 100%;
 }
 
+
 .home.datavisual {
   height: 80%;
   display:block;
@@ -182,26 +259,110 @@ button.button.button-block.login {
 
 .home.createnew {
   width: 100%;
-  height: 10%;
+  height: 50%;
   display: table;
-  background-color: #64bf67;
+  background-color: #64bf7e;
   border-radius: 0px;
+  border-bottom: 3px solid #62b265;
+}
+
+.home.viewclients {
+  width: 33.3%;
+  height: 50%;
+  display: table;
+  background-color: #64bfbe;
+  border-radius: 0px;
+  float: left;
+  font-size: .8em;
+}
+
+.home.agencystatus {
+  width: 33.3%;
+  height: 50%;
+  display: table;
+  background-color: #64bfbe;
+  border-radius: 0px;
+  float:left;
+    font-size: .8em;
+}
+
+.home.datareports {
+  width: 33.4%;
+  height: 50%;
+  display: table;
+  background-color: #64bfbe;
+  border-radius: 0px;
+    font-size: .8em;
+    float:left;
+}
+
+.button-background {
+  display: block;
+  height: 100%;
+  width:100%;
+  background-color: #64bfbe;
+
 }
 
 a.home.center {
-    display: table-cell;
-    vertical-align: middle;
-    color: #fff;
+  display: table-cell;
+  vertical-align: middle;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-weight: 300;
+    text-align: center;
 }
 
 .home.button-bar > a.button {
   border: 0px;
-  line-height: 55px;
+  line-height: 60px;
   background-color: #4cae4f;
   border-radius: 0px;
   color: #fff;
 }
 
+.agency-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.agency-image2 {
+  height: 200px;
+  left: -30%;
+  position: relative;
+}
+
+.agency-buttons2 {
+  position: absolute;
+  top: 80%;
+}
+
+.agency-buttons2 > .home.createnew, .agency-buttons2 > .home.viewclients, .agency-buttons2 > .home.agencystatus {
+  height: 50%;
+}
+
+.agency-buttons5 {
+  position: absolute;
+  top: 80%;
+}
+
+
+.hmis-content {
+  height: 80%;
+}
+
+.hmis.createnew {
+  width: 100%;
+  height: 10%;
+  display: table;
+  background-color: #64bf7e;
+  border-radius: 0px;
+}
+
+.agency-content.scroll-content {
+  height: 80%;
+}
 
 /*---------- .003 Home Page ----------*/
 .home-container {
@@ -282,12 +443,13 @@ a.home.center {
   width: 30px;
   background-color: rgba(0, 0, 0, .1);
   border: 0px;
+  display: table;
 }
 
 .profile-expand>.lnr {
   text-align: center;
   position: relative;
-  display: block;
+  display: table-cell;
 }
 
 .profile-navigation {
@@ -301,18 +463,21 @@ a.home.center {
 }
 
 .profile-navigation-bar>a>span {
-  top: 35%;
-  display: block;
   position: relative;
+  vertical-align: middle;
+  display: table-cell;
 }
 
 .profile-navigation-bar>.button:first-child, .profile-navigation-bar>.button, .profile-navigation-bar>.button:last-child {
   border-radius: 0px;
   background-color: #f9f9f9;
-  line-height: 60px;
+  line-height: 0px;
   font-size: 1.5em;
   border-width: 0px 1px 1px 0px;
+  display: table;
+  width: 20.2%;
   border-color: #e8e8e8;
+  height: 100%;
 }
 
 .profile-navigation-bar>a.button.activated {
@@ -549,4 +714,106 @@ p.message-content.ng-binding {
 
 .list-button:last-child {
   border-radius: 0px 3px 3px 0px;
+}
+
+
+
+
+/* ----------------- NEW CLIENT --------------- */
+
+.newclient {
+  padding: 2px;
+}
+
+.newclient > .item {
+  border-left: 0px;
+  border-right: 0px;
+  padding-left: 0px;
+}
+
+.newclient > .item:first-child {
+  border-top: 0px;
+}
+
+.noborderbot {
+  border-bottom: 0px;
+}
+
+.green-button {
+  background-color: #64bf67;
+  border: 0px;
+  padding: 15px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-right: 5px;
+  width: 100%;
+  border-radius: 50px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.green-button.grey {
+  background-color: #7a7a7a;
+}
+
+
+
+
+
+
+/* --------------- HOME PAGE GRAPHS ------------------- */
+
+.row1.graphs {
+  display:block;
+  width: 100%;
+  height: 230px
+}
+
+.row2.graphs {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 50px;
+}
+
+.morris-hover.morris-default-style {
+    text-align: center;
+}
+
+.fullwidth {
+  height:200px;
+  width: auto;
+}
+
+.halfwidth {
+  display:inline-block;
+  width: 50%;
+  height: 230px;
+  float: left;
+}
+
+.smallergraph {
+  width: 80%;
+  margin: 0 auto;
+  height: 400px;
+  top: -50px;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+
+.agency-half {
+  display:inline-block;
+  text-align: center;
+  width: 50%;
+  float: left;
+  padding-top:35px;
+  padding-bottom: 15px;
+}
+
+.data-header {
+  font-size: 2.5em;
+  display: block;
+  padding-bottom: 5px;
 }
