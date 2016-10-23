@@ -1,4 +1,4 @@
-function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
+function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
 
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
@@ -11,9 +11,17 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
 
 	$scope.myData = $firebaseArray($scope.globalref);
   
-  $scope.buttons = [
-    {},
-  ];
+  $scope.buttons = [{
+    name: 'Data Visualization'
+  }, {
+    name: 'Comparison'
+  }, {
+    name: 'Reports'
+  }];
+  $scope.slide = function($index) {
+    $scope.current = $index;
+    $ionicSlideBoxDelegate.slide($index);
+  }
 
   $scope.countData = function() {
     $scope.tmpasicount = 0;
@@ -270,7 +278,6 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
       ykeys: ['intake','completed'],
       labels: ['intake','completed'],
       xLabelFormat: function(x) {
-        console.log(x.getMonth());
         if(x.getMonth() === 0) return "Jan";
         else if(x.getMonth() === 1) return "Feb";
         else if(x.getMonth() === 2) return "Mar";
@@ -389,9 +396,9 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
   }
 };
 
-angular.module("SHARKZ").controller("dataCtrl", ["$scope", "$timeout", "$firebaseObject", "$firebaseArray", dataCtrl]);
+angular.module("SHARKZ").controller("dataCtrl", ["$scope", "$timeout", "$firebaseObject", "$firebaseArray", "$ionicSlideBoxDelegate", "$ionicScrollDelegate", dataCtrl]);
 
-function agencyDataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
+function agencyDataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlideBoxDelegate, $ionicScrollDelegate) {
 
 	// With the new view caching in Ionic, Controllers are only called
 	// when they are recreated or on app start, instead of every page change.
@@ -403,6 +410,18 @@ function agencyDataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
 	$scope.globalref = firebase.database().ref().child("global");
 
 	$scope.myData = $firebaseArray($scope.globalref);
+  
+  $scope.buttons = [{
+    name: 'Data Visualization'
+  }, {
+    name: 'Comparison'
+  }, {
+    name: 'Reports'
+  }];
+  $scope.slide = function($index) {
+    $scope.current = $index;
+    $ionicSlideBoxDelegate.slide($index);
+  }
 
   $scope.countData = function() {
     $scope.tmpasicount = 0;
@@ -671,4 +690,4 @@ function agencyDataCtrl($scope, $timeout, $firebaseObject, $firebaseArray) {
 
 };
 
-angular.module("SHARKZ").controller("agencyDataCtrl", ["$scope", "$timeout", "$firebaseObject", "$firebaseArray", agencyDataCtrl]);
+angular.module("SHARKZ").controller("agencyDataCtrl", ["$scope", "$timeout", "$firebaseObject", "$firebaseArray", "$ionicSlideBoxDelegate", "$ionicScrollDelegate", agencyDataCtrl]);
