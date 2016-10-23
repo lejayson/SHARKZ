@@ -1,4 +1,4 @@
-<ion-view view-title="Casefiles">
+<ion-view view-title="Casefiles" data-ng-controller="arunCtrl">
   <ion-nav-bar class="green-nav">
     <ion-nav-buttons side="left">
       <button menu-toggle="left" class="green-nav button button-icon icon ion-navicon"></button>
@@ -7,7 +7,7 @@
   </ion-nav-bar>
 
 
-  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light" ng-controller="arunCtrl">
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
     <div class="tabs">
       <a ng-repeat="button in buttons" ng-class="{'active': $index === current}" ng-click="slide($index)" class="tab-item">{{ button.name }}</a>
 
@@ -17,7 +17,7 @@
   <ion-pane>
     <ion-content scroll="false" class="has-tabs-top">
 
-      <div class="casefiles-slider" >
+      <div class="casefiles-slider">
         <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
 
           <ion-slide>
@@ -63,39 +63,12 @@
                       <ion-item class="client-list">
 <a ng-click="clickDetail($index)">
                           <img class="float-left" src="img\placeholder.png">
-
                           <div class="client-detail">
                             <span class="client-name">{{ v.First_Name }} {{ v.Last_Name }}</span>
-                            <span class="client-age"><b>Age</b> {{ v.age }} {{ v.vet }}</span>
-                            <span class="client-score"><b>VISPDAT Score</b> {{ v.score }}</span>
-                            <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>
-                            <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
-
-                          </div></a>
-                      </ion-item>
-                    </ion-list>
-                  </div>
-                  <button ng-click="currentPage1 = decreasePage(currentPage1)"><<</button> {{currentPage1 + 1}}/{{pages.length}}
-                  <button ng-click="currentPage1 = increasePage(currentPage1, pages.length)">>></button>
-
-                </div>
-              </div>
-            </ion-content>
-
-
-
-          </ion-slide>
-
-          <ion-slide>
-            2
-          </ion-slide>
-
-          <ion-slide>
-            3
-          </ion-slide>
-        </ion-slide-box>
-        </div>
-
-    </ion-content>
-  </ion-pane>
+                            <span class="client-age" ng-show="v.age"><b>Age</b> {{ v.age }} {{ v.vet }}</span>
+                            <span class="client-score" ng-show="v.score"><b>VISPDAT Score</b> {{ v.score }}</span>
+                            <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>  <span class="client-assigned" ng-show="v.Assigned_case"><b>Assigned to </b>{{v.Assigned_case}}</span>
+                            <button ng-click="openCaseManager({{v.UserID}})">Assign Case Manager</button>
+                          </div>
+</a>
 </ion-view>
