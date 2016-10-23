@@ -62,6 +62,23 @@ function setVet(table){
   return table;
 }
 
+function displaypic(table){
+  for(i = 0; i < table.length; i++){
+    if(table[i]){
+      if(!table[i].male_beds && !table[i].female_beds){
+         table[i]["image"] = "img\\nfnm.png";
+      }else if(!table[i].male_beds && table[i].female_beds){
+         table[i]["image"] = "img\\yfnm.png";
+      }else if(table[i].male_beds && !table[i].female_beds){
+         table[i]["image"] = "img\\nfym.png";
+      }else {
+         table[i]["image"] = "img\\yfym.png";
+      }
+    }
+  }
+  return table;
+}
+
 function increase(num, max){
   if(num < max){
     num = num + 1;
