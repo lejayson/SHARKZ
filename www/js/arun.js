@@ -102,4 +102,4 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $st
 
 
 }
-angular.module("SHARKZ").controller("arunCtrl", ["$scope", "$http", "$firebaseObject", "$firebaseArray", "firebase", "$state", "$ionicModal", arunCtrl]);
+angular.module("SHARKZ").controller("arunCtrl", ["$scope", "$http", "$firebaseObject", "$firebaseArray", "firebase", "$state", "$ionicModal", "$ionicSlideBoxDelegate", "$ionicScrollDelegate", arunCtrl]);
