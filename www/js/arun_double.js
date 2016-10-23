@@ -8,7 +8,7 @@ function arun2Ctrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $s
   $scope.propertyName2 = 'First_Name';
   $scope.reverse = false;
   $scope.reverse2 = false;
-  $scope.itemPerPage = 10;
+  $scope.itemPerPage = 8;
   $scope.currentPage1 = 0;
   $scope.currentPage2 = 0;
 
@@ -20,10 +20,12 @@ function arun2Ctrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $s
   $scope.spclients = $firebaseArray(spRef);
 
   $scope.ppclients.$loaded().then(function(pages) {
-    $scope.pppages = toPages($scope.ppclients, $scope.itemPerPage);
-  });
-  $scope.spclients.$loaded().then(function(pages) {
-    $scope.sppages = toPages($scope.spclients, $scope.itemPerPage);
+    $scope.spclients.$loaded().then(function(pages) {
+      $scope.Allpages = mergeTable($scope.ppclients, $scope.spclients);
+      $scope.Allpages = getAge($scope.Allpages);
+      $scope.Allpages = setVet($scope.Allpages);
+      $scope.pages = toPages($scope.Allpages, $scope.itemPerPage);
+    });
   });
 
   $scope.propertyName = 'id';
@@ -57,7 +59,20 @@ function arun2Ctrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $s
     return increase(page, max);
     console.log(page);
   }
-  
+
+  $scope.remove = function(client){
+    if(client.Agencies == "St. Patrick"){
+      $scope.spclients.$loaded().then(function(pages) {
+        pages.remove(client.$id);
+      })
+    }
+    if(client.Agencies == "Peter & Paul"){
+      $scope.ppclients.$loaded().then(function(pages) {
+        pages.remove(client.$id);
+      })
+    }
+  }
+
   $scope.buttons = [{
     name: 'Open'
   }, {
@@ -70,7 +85,7 @@ function arun2Ctrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $s
     $scope.current = $index;
     $ionicSlideBoxDelegate.slide($index);
   }
-  $scope.clickDetail = function(id){
+  $scope.edit = function(id){
     $state.go("app.agencyclient", { id: id });
   }
 
