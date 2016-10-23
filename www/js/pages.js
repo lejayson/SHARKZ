@@ -140,6 +140,16 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
       }
     }
   })
+  
+  .state('app.agencydata', {
+    url: '/agency/data',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/agency/data.html',
+        controller: 'agencyDataCtrl'
+      }
+    }
+  })
 
   .state('app.home', {
     url: '/home',
