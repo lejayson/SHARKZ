@@ -82,6 +82,7 @@ h1.title.menu-title {
   margin-bottom: 15px;
 border: 0px;
 border-radius: 5px 0px 5px 5px;
+margin-right:42px;
 }
 
 .float-left {
@@ -609,6 +610,9 @@ a.home.center {
 
 
 /*---------- .003 Profile Page ----------*/
+.half {
+  text-align: center;
+}
 
 .scroll {
   height: 100%;
@@ -622,6 +626,8 @@ a.home.center {
   height: 30%;
   -webkit-align-items: center;
   background-color: #efefef;
+  background-image: url(../img/header-graduation.png);
+  background-size: auto 100%;
 }
 
 .profile-expand {
