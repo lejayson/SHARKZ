@@ -3703,8 +3703,8 @@ address {
   font-style: normal;
   line-height: 1.42857; }
 
-a {
-  color: #387ef5; }
+/*a {
+  color: #387ef5; }*/
 
 a.subdued {
   padding-right: 10px;

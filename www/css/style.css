@@ -7,19 +7,33 @@
 
 */
 
-.activated {
+/*.activated {
   background-color: #455445;
   color: #fff;
-}
+}*/
 
 .h4 {
   font-weight: 500;
+}
+
+.imagediv {
+    width: 100px;
+    height: 100px;
+    display: inherit;
 }
 
 .menu .scroll-content {
     z-index: 10;
     background-color: #4d9a50;
     top: 100px;
+}
+
+span.assign-button {
+    display: block;
+    position: absolute;
+    left: 40px;
+    color: rgba(255,255,255,.7);
+    top: 54px;
 }
 
 .lsidemenu > .list > ion-item.item.item-complex {
@@ -62,6 +76,8 @@ h1.title.menu-title {
 
 .client-list {
   margin-bottom: 15px;
+border: 0px;
+border-radius: 5px;
 }
 
 .float-left {
@@ -82,12 +98,16 @@ h1.title.menu-title {
   display: inline-block;
   padding-left: 15px;
   padding-right: 30px;
+  top: -2px;
+  position: relative;
 }
 
 .client-name {
   font-size: 1.1em;
   padding-bottom: 5px;
   display:block;
+  color: #64bfbe;
+  white-space: normal;
 }
 
 .client-scroll {

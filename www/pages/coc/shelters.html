@@ -27,7 +27,7 @@
                 <button class="button list-button">
                   <i class="icon ion-android-menu"></i>
                 </button>
-                <select class="agencies-status" ng-model="selectedOptions.status" ng-options="selected.status as selected.Name for selected in filterOptions">
+                <select class="client-status" ng-model="selectedOptions.status" ng-options="selected.status as selected.Name for selected in filterOptions">
                   <option value="">Status</option>
                 </select>
                 <!--
@@ -44,8 +44,8 @@
                 <div class="button-bar clientinfo">
                   <a class="button" ng-click="sortBy('Agency')">Agency</a>
                   <a class="button" ng-click="sortBy('num_beds')">Total Bed</a>
-                  <a class="button" ng-click="sortBy('male_beds')">Reserved for Male</a>
-                  <a class="button" ng-click="sortBy('female_beds')">Reserved for Female</a>
+                  <a class="button" ng-click="sortBy('male_beds')">Male</a>
+                  <a class="button" ng-click="sortBy('female_beds')">Female</a>
                 </div>
 
                 <!-- Table generation -->
@@ -57,9 +57,8 @@
                       <ion-item class="client-list">
                         <a class="client-link" ng-href="#/app/agency/client">
 
-                          <img class="float-left" src=v.display>
-                          <p>{{v.image}}</p>
 
+                          <a ng-click="assign(v)"><div class="imagediv"><img class="float-left" src="{{v.image}}"><span class="assign-button">Assign</span></div></a>
                           <div class="client-detail">
                             <span class="client-name">{{ v.Agency }}</span>
                             <span class="client-age"><b>Total Beds</b> {{ v.num_beds }}</span>
@@ -68,7 +67,7 @@
                             <span class="client-assigned"><b>Hours: </b> {{v.hours_ops}}</span>
                           </div>
                         </a>
-                        <button ng-click="assign(v)">Assign</button>
+
                       </ion-item>
                     </ion-list>
                   </div>
@@ -86,7 +85,7 @@
 
 
         </ion-slide-box>
-        </div>
+      </div>
 
     </ion-content>
   </ion-pane>
