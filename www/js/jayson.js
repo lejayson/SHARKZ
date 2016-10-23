@@ -2,22 +2,21 @@ function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $t
   $scope.client = {};
   var rootRef = firebase.database().ref();
   var arrRef = rootRef.child('JaysonSampleClient');
-  
   $scope.testvar = $firebaseArray(arrRef);
   $scope.addClient = function () {
     $scope.testvar.$add({name: $scope.client.name, gender:$scope.client.gender}).then(function(ref) {});
     $scope.client.name = null;
   }
-  
+
   $scope.addClient = function() {
-    
+
     var storageRef = firebase.storage().ref();
     var uploadRef = storageRef.child('PUTSOMETHINGHEREJAYSON.jpg');
-    
+
     uploadRef.put($scope.picBLOB).then(function(ret){console.log("success")}, function(error){console.log("failed: " + error)});
   }
-  
-  
+
+
   $scope.toggleCamera = function() {
     if ($scope.client.PICperm) {
     	options = {
@@ -35,7 +34,7 @@ function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $t
     		if (!navigator.camera) {
     			// Load image if unable to get camera
     			console.log("error getting camera");
-          
+
     		} else {
     			$cordovaCamera.getPicture(options).then(function (imageData) {
     				$scope.picture = "data:image/jpeg;base64," + imageData;
@@ -47,14 +46,14 @@ function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $t
     				}
 
     				var myBLOBuint = new Uint8Array(myBLOBarray);
-            
+
             var picBLOB = new Blob([myBLOBuint], [{contentType : 'image/jpeg'}]);
-            
+
             $scope.picBLOB = picBLOB;
-            
+
     			}, function (err) {
     				console.log("Camera Failed: " + err);
-    			}); 
+    			});
     		}
     	});
     }
