@@ -1,0 +1,13 @@
+<ion-modal-view >
+  <ion-header-bar>
+  <h1 class="title">Case Manager</h1>
+  <div class="buttons">
+    <button class="button button-clear" ng-click="closeCaseManager()">Close</button>
+  </div>
+  </ion-header-bar>
+  <ion-content>
+    <ul ng-repeat="cm in casemanagers">
+      <li>{{cm.First_Name}} {{cm.Last_Name}} {{cm.CM_ID}} {{cm.Agency}}  <button ng-click="assignCM(cm.First_Name, cm.Last_Name)">Assign to Client</button></li>
+    </ul>
+  </ion-content>
+</ion-modal-view>
