@@ -5,7 +5,7 @@
     <ul>
       <li ng-repeat="program in HousingProg">
 
-        <button ng-click="addServices({{clientInfo.UserID}}, $index)" class="service-button">
+        <button ng-click="addServices(clientInfo.UserID, $index)" class="service-button">
           <p class="program-name2">{{program.Service}}</p><p>{{program.Description}}</p>
         </button>
       </li>
