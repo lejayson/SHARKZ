@@ -1,6 +1,6 @@
 function shelterCtrl($scope, $state, $firebaseObject, $firebaseArray, $firebase){
 
-  $scope.filterOptions = [{"Name": "Full", "status": "full"}, {"Name": "Availible", "status": "available"}, {"Name": "Closed", "status": "closed"}];
+  $scope.filterOptions = [{"Name": "Full", "status": "full"}, {"Name": "Availible", "status": "available"}, {"Name": "Closed", "status": "closed"}, {"Name": "ALL", "status": ""}];
   $scope.sortOptions1 = ["First_Name", "Last_Name"];
   $scope.volunteers = [];
   $scope.propertyName = 'Agency';
