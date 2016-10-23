@@ -133,7 +133,7 @@ USE THIS TO NAVGIATE THROUGH content
 
                   </div>
 
-
+<div class="assignbutton"><button class="button">Assign to Shelter</button></div>
                   <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
 
                     <ion-item ng-repeat="item in houseitems" item="item" href="#/item/{{item.id}}" class="profile-program-list">
@@ -228,11 +228,9 @@ USE THIS TO NAVGIATE THROUGH content
                   <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
 
                     <ion-item ng-repeat="item in messages" item="item" href="#/item/{{item.id}}" class="profile-messages-list">
-                      <span class="message-name">{{ item.id }}</span>
+                      <span class="message-name">{{ item.name }}</span>
                       <span class="message-date float-right">{{ item.date}}</span>
-                      <p class="message-content">{{ item.description }}</p>
-                      <ion-delete-button class="ion-minus program-delete-button" ng-click="onItemDelete()">
-                      </ion-delete-button>
+                      <p class="message-content">{{ item.msg }}</p>
                     </ion-item>
 
                   </ion-list>
@@ -243,9 +241,9 @@ USE THIS TO NAVGIATE THROUGH content
               <div class="profile-message-box">
                 <div class="item item-input-inset">
                   <label class="item-input-wrapper">
-                    <input type="text" placeholder="Type a message...">
+                    <input type="text" ng-model="user.msg" placeholder="Type a message...">
                   </label>
-                  <button class="button button-small">
+                  <button  ng-click="addNotes()" class="button button-small">
                     Send
                   </button>
                 </div>
