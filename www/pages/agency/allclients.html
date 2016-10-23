@@ -7,7 +7,7 @@
   </ion-nav-bar>
 
 
-  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light" ng-controller="arunCtrl">
     <div class="tabs">
       <a ng-repeat="button in buttons" ng-class="{'active': $index === current}" ng-click="slide($index)" class="tab-item">{{ button.name }}</a>
 
@@ -61,19 +61,17 @@
                   <div class="client-fulllist">
                     <ion-list ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
                       <ion-item class="client-list">
-                        <a class="client-link" ng-href="#/app/agency/client">
 
                           <img class="float-left" src="img\placeholder.png">
 
                           <div class="client-detail">
-                            <button ng-click="clickDetail()">Detail</button>
                             <span class="client-name">{{ v.First_Name }} {{ v.Last_Name }}</span>
                             <span class="client-age"><b>Age</b> {{ v.age }} {{ v.vet }}</span>
                             <span class="client-score"><b>VISPDAT Score</b> {{ v.score }}</span>
                             <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>
                             <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
+                            <button ng-click="clickDetail($index)">Detail</button>
                           </div>
-                        </a>
                       </ion-item>
                     </ion-list>
                   </div>
