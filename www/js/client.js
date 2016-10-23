@@ -36,7 +36,7 @@ function clientCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ioni
     //list.set({"name": $scope.user.name,"msg": $scope.user.msg});
     var msgRef = rootRef.child('ArcNotes').child(clientID);
     msgvar = $firebaseArray(msgRef);
-    msgvar.$add({ name: 'Sharkz', msg: $scope.user.msg , date: timenow()}).then(function(ref) {});
+    msgvar.$add({ name: 'St.Patrick', msg: $scope.user.msg , date: timenow()}).then(function(ref) {});
     $scope.user.msg = null;
   }
 

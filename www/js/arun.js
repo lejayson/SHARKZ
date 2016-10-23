@@ -21,7 +21,6 @@ function arunCtrl($scope, $http, $filter, $firebaseObject, $firebaseArray, $fire
   $scope.clients.$loaded().then(function(pages) {
     $scope.clients = getAge($scope.clients);
     $scope.clients = setVet($scope.clients);
-    $scope.clients = $filter('orderBy')($scope.clients, 'Score', true);
     $scope.pages = toPages($scope.clients, $scope.itemPerPage);
   });
 

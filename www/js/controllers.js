@@ -68,5 +68,12 @@ angular.module('starter.controllers', [])
     $scope.current = $index;
     $ionicSlideBoxDelegate.slide($index);
   }
+  $scope.logoutUser = function(){
+    firebase.auth().signOut().then(function() {
+      $state.go("app.login");
+    }, function(error) {
+      console.log("how did you mess up logout");
+    });
+  }
 
 })
