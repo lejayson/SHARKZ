@@ -37,7 +37,7 @@ USE THIS TO NAVGIATE THROUGH content
         <!--- 003. Profile Header --->
         <div class="row profile-header">
           <div class="col text-center">
-            [LOGO / HEADER]
+            <!--[LOGO / HEADER]-->
           </div>
         </div>
 
@@ -227,7 +227,7 @@ USE THIS TO NAVGIATE THROUGH content
 
                   <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
 
-                    <ion-item ng-repeat="item in messages" item="item" href="#/item/{{item.id}}" class="profile-messages-list">
+                    <ion-item ng-repeat="item in messages" item="item" class="profile-messages-list">
                       <span class="message-name">{{ item.name }}</span>
                       <span class="message-date float-right">{{ item.date}}</span>
                       <p class="message-content">{{ item.msg }}</p>
