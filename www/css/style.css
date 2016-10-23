@@ -28,7 +28,7 @@
 
 .menu .scroll-content {
     z-index: 10;
-    background-color: #4d9a50;
+    background-color: #transparent;
     top: 100px;
 }
 
@@ -41,7 +41,7 @@ span.assign-button {
 }
 
 .lsidemenu > .list > ion-item.item.item-complex {
-    border-color: #6fb272;
+    border-color: rgba(255,255,255,0.1);
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: transparent;
@@ -61,7 +61,7 @@ span.assign-button {
 
 ion-header-bar.bar-stable.menu-headerbar.bar.bar-header {
     border-color: #b2b2b2;
-    background-color: #4d9a50;
+    background-color: transparent;
     height: 100px;
 }
 
@@ -293,6 +293,10 @@ button.button.button-block.login {
   background-size: 100% auto;
 }
 
+ion-side-menu.menu.menu-left {
+    background-image: url(../img/side-menu.jpg);
+}
+
 .agency-content2 {
   height: 57%;
 }
@@ -423,6 +427,31 @@ span.lnr.lnr-cog, span.lnr.lnr-exit {
   width:100%;
   background-color: #64bfbe;
 
+}
+
+.addservice2 {
+    min-height: 50%;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+}
+
+div.slider {
+    height: 100%;
+}
+
+
+.has-vispdatheader {
+  top: 40px;
+  margin-bottom: 50px;
+}
+
+label.item.item-input.item-stacked-label.vispdatinput {
+    padding: 5px 0px 5px 0px;
+    text-align: left;
 }
 
 a.home.center {
