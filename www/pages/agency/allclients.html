@@ -50,8 +50,8 @@
                 <div class="button-bar clientinfo">
                   <a class="button" ng-click="sortBy('First_Name')">first name</a>
                   <a class="button" ng-click="sortBy('Last_Name')">last name</a>
-                  <a class="button" ng-click="sortBy('score')">score</a>
-                  <a class="button" ng-click="sortBy('age')">Age</a>
+                  <a class="button score" ng-click="sortBy('score')">score</a>
+                  <a class="button age" ng-click="sortBy('age')">Age</a>
                 </div>
 
                 <!-- Table generation -->
@@ -62,7 +62,7 @@
                     <ion-list ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
                       <button class="client-casemanager" ng-click="openCaseManager({{v.UserID}})"><span class="lnr lnr-user"></span></button>
 
-                      <ion-item class="client-list">
+                      <ion-item class="client-list smalllerr">
 
                           <a ng-click="clickDetail($index)"><img class="float-left" src="img\placeholder.png">
                           <div class="client-detail">
