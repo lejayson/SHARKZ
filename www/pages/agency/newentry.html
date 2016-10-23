@@ -1,3 +1,4 @@
+
 <ion-view view-title="New Client" data-ng-controller="jaysonCtrl">
   <ion-nav-bar class="green-nav">
     <ion-nav-buttons side="left">
@@ -50,11 +51,7 @@
           </label>
           <label class="item">
             Allow us to collect Vispdat
-            <input type="checkbox" ng-model="client.VIperm" />
-            <div ng-show="client.VIperm">
-              <p>vispdat
-              </p>
-            </div>
+            <input type="checkbox" ng-click="openvispdatPanel()" ng-model="client.VIperm" />
           </label>
           <label class="item noborderbot">
             Allow us to collect Photos
@@ -65,8 +62,6 @@
           </label>
 
           <div class="clientbuttons">
-          <button class="green-button grey" ng-click="assignClient()">Assign Case Manager
-          </button>
           <button class="green-button" ng-click="addClient()">Add Client
           </button>
 </div>

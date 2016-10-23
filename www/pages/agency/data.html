@@ -14,7 +14,7 @@
   </div>
 
   <ion-pane>
-    <ion-content scroll="false" class="has-tabs-top">
+    <ion-content scroll="true" class="has-tabs-top">
 
       <div class="homepage-slider">
         <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
@@ -23,29 +23,22 @@
 
             <ion-content scroll="true">
               <div class="home datavisual container">
-                <div class="row">
-                  <div class="col"><div class="agency-half"><span class="data-header">{{agencyCases}}</span>Open Cases</div></div>
-                  <div class="col"><div class="agency-half"><span class="data-header">{{myData.length - agencyCases}}</span> Completed</div></div>
-                </div>
 
                 <div class="">
+                  <h3 class="half">Ethnicity</h3><h3 class="half">Gender</h3>
                   <div id="achartone" class="half"></div>
                   <div id="acharttwo" class="half"></div>
                 </div>
 
                 <div class="">
+                  <h3>Veteran Status</h3>
                   <div id="achartfour" class="half"></div>
-                  <div id="achartfour" class="half"></div>
                 </div>
 
 
-                <div class="row2 graphs">
-                  <div id="achartthree" class="fullwidth"></div>
-                </div>
+                
 
-                <div class="row2 graphs">
-                  <div id="achartfive" class="fullwidth"></div>
-                </div>
+
               </div>
             </ion-content>
 
@@ -54,13 +47,26 @@
 
           <ion-slide>
 
-            comparison
-
+                <div class="row2 graphs">
+                  <h2>Data Verification Quality</h2>
+                  <div id="achartfive" class="fullwidth"></div>
+                </div>
+                
+                <div class="row2 graphs">
+                  <div id="charteight" class="fullwidth"></div>
+                </div>
+                
+                <div class="row2 graphs">
+                  <h2>Breakdown by Military Branch</h2>
+                  <div id="achartthree" class="fullwidth"></div>
+                </div>
           </ion-slide>
 
           <ion-slide>
-
-            reports
+            <div class="row">
+              <div class="col"><div class="agency-half"><span class="data-header">{{agencyCases}}</span>Open Cases</div></div>
+              <div class="col"><div class="agency-half"><span class="data-header">{{myData.length - agencyCases}}</span> Completed</div></div>
+            </div>
 
           </ion-slide>
 
