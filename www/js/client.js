@@ -99,7 +99,7 @@ function clientCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ioni
   
   
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('pages/agency/setShelter.html', {
+  $ionicModal.fromTemplateUrl('pages/agency/assignshelter.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.sheltermodal = modal;

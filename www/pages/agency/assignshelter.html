@@ -1,20 +1,8 @@
-<ion-view view-title="HMIS Shelter">
-  <ion-nav-bar class="green-nav">
-    <ion-nav-buttons side="left">
-      <button menu-toggle="left" class="green-nav button button-icon icon ion-navicon"></button>
-    </ion-nav-buttons>
-    <ion-nav-back-button></ion-nav-back-button>
-  </ion-nav-bar>
-
-
-
+<ion-modal-view data-ng-controller="setShelterCtrl">
   <ion-pane>
     <ion-content scroll="false">
 
-      <div class="casefiles-slider" data-ng-controller="shelterCtrl">
-        <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
-
-          <ion-slide>
+      <div class="casefiles-slider" data-ng-controller="setShelterCtrl">
 
             <div class="casefile-search-box">
               <div class="item item-input-inset">
@@ -58,7 +46,7 @@
                         <a class="client-link" ng-href="#/app/agency/client">
 
 
-                          <a ng-click="assign(v)"><div class="imagediv"><img class="float-left" src="{{v.image}}"><span class="assign-button">Assign</span></div></a>
+                          <a ng-click="setShelter(v.Agency)"><div class="imagediv"><img class="float-left" src="{{v.image}}"><span class="assign-button">Assign</span></div></a>
                           <div class="client-detail">
                             <span class="client-name">{{ v.Agency }}</span>
                             <span class="client-age"><b>Total Beds</b> {{ v.num_beds }}</span>
@@ -78,15 +66,8 @@
               </div>
             </ion-content>
 
-
-
-          </ion-slide>
-
-
-
-        </ion-slide-box>
       </div>
 
     </ion-content>
   </ion-pane>
-</ion-view>
+</ion-modal-view>
