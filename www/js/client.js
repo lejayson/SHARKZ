@@ -1,30 +1,45 @@
 function clientCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ionicModal, $ionicSlideBoxDelegate ,$compile, $http, $timeout) {
-  console.log($stateParams.id);
   var rootRef = firebase.database().ref();
   var objRef = rootRef.child('P&P').child($stateParams.id);
   var obj = $firebaseObject(objRef);
   var clientID;
+  $scope.user = {};
   obj.$loaded().then(function() {
     var dobString = obj.DOB;
     clientID = obj.UserID;
+
     var serviceArrRef = rootRef.child('assignedHousing').child(clientID);
     $scope.houseitems = $firebaseArray(serviceArrRef);
+
     var employmentArrRef = rootRef.child('assignedEmployment').child(clientID);
     $scope.empitems = $firebaseArray(employmentArrRef);
+
     var MedicalArrRef = rootRef.child('assignedMedical').child(clientID);
     $scope.meditems = $firebaseArray(MedicalArrRef);
+
     var year = dobString.slice(-4);
-    console.log(year);
+
     $scope.clientAge =  (2016 - parseInt(year,10));
     var splitDate = obj.Date_Created.split(' ');
     repDate = splitDate[0].split('/').join('.');
     $scope.clientEntryDate = repDate;
+
+    var msgRef = rootRef.child('ArcNotes').child(clientID);
+    $scope.messages = $firebaseArray(msgRef);
   });
   obj.$bindTo($scope, "clientInfo");
   $scope.data = {
     showDelete: false
   };
 
+  $scope.addNotes = function(){
+    //var list = arrRef.child('tsting');
+    //list.set({"name": $scope.user.name,"msg": $scope.user.msg});
+    var msgRef = rootRef.child('ArcNotes').child(clientID);
+    msgvar = $firebaseArray(msgRef);
+    msgvar.$add({ name: 'Sharkz', msg: $scope.user.msg , date: timenow()}).then(function(ref) {});
+    $scope.user.msg = null;
+  }
 
   $scope.onItemDelete = function(index) {
     $scope.houseitems.$remove($scope.houseitems[index]).then(function(arrRef) {});
@@ -35,33 +50,6 @@ function clientCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ioni
   $scope.onMedicalDelete = function(index) {
     $scope.meditems.$remove($scope.meditems[index]).then(function(arrRef) {});
   };
-
-  $scope.messages = [{
-    id: 'Kim',
-    date: '9:20am 10.19.2016',
-    description: 'Hello'
-  }, {
-    id: 'Jayson',
-    date: '9:20am 10.19.2016',
-    description: 'How are you'
-  }, {
-    id: 'Jayson',
-    date: '9:20am 10.19.2016',
-    description: 'I am good, you?'
-  }, {
-    id: 'Jayson',
-    date: '9:20am 10.19.2016',
-    description: 'I am good, you?'
-  }, {
-    id: 'Jayson',
-    date: '9:20am 10.19.2016',
-    description: 'I am good, you?'
-  }, {
-    id: 'Kim',
-    date: '9:20am 10.19.2016',
-    description: 'Ok'
-  }];
-
 
   $scope.open = function() {
     $state.go('tabs.home', {});
@@ -152,6 +140,21 @@ function clientCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ioni
       $scope.closeLogin();
     }, 1000);
   };
+  function timenow(){
+    var now= new Date(),
+    ampm= 'am',
+    h= now.getHours(),
+    m= now.getMinutes(),
+    s= now.getSeconds();
+    if(h>= 12){
+        if(h>12) h -= 12;
+        ampm= 'pm';
+    }
+
+    if(m<10) m= '0'+m;
+    if(s<10) s= '0'+s;
+    return now.toLocaleDateString()+ ' ' + h + ':' + m + ':' + s + ' ' + ampm;
+  }
 
 }
 angular.module("SHARKZ").controller("clientCtrl", ["$scope", "$stateParams", "$firebaseObject", "$firebaseArray", "$ionicModal", "$ionicSlideBoxDelegate", "$compile", "$http", "$timeout", clientCtrl]);
