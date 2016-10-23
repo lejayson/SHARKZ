@@ -21,7 +21,6 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $st
 
   $scope.propertyName = 'id';
   $scope.reverse = false;
-
   $scope.sortBy = function(propertyName) {
     if ($scope.reverse == true){
       $scope.reverse = false;
@@ -58,6 +57,9 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $st
     $scope.current = $index;
     $ionicSlideBoxDelegate.slide($index);
   }
+  $scope.clickDetail = function(id){
+    $state.go("app.agencyclient", { id: id });
+  }
 
 }
-angular.module("SHARKZ").controller("arunCtrl", ["$scope", "$http", "$firebaseObject", "$firebaseArray", "firebase", arunCtrl]);
+angular.module("SHARKZ").controller("arunCtrl", ["$scope", "$http", "$firebaseObject", "$firebaseArray", "firebase", "$state", arunCtrl]);
