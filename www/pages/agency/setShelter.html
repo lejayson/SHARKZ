@@ -8,11 +8,10 @@
   </ion-header-bar>
   <ion-content>
     <ul>
-      <li ng-repeat="shelter in Shelters">
+      <li ng-repeat="bed in Shelters">
         
-        <p>Name: {{ shelter.Agency }}</p><p>Female Beds: {{ shelter.female_beds }}, Male Beds: {{ shelter.male_beds }}</p>
-        <button ng-click="setShelter({{clientInfo.UserID}}, $index)">Assign Shelter</button>
-        
+        <p>Category: {{ bed.Category }}</p><p>Requirements: {{ bed.Requirement }}</p><p>Shelter: {{ bed.shelter_ID }}</p>
+        <button ng-click="setShelter({{bed.Bed_ID}}, {{clientInfo.UserID}})">Assign Shelter</button>
       </li>
     </ul>
   </ion-content>
