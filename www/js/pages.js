@@ -138,11 +138,39 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     }
   })
 
+  .state('app.agencyallagencies', {
+    url: '/agency/allagencies',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/coc/allAgencies.html',
+      }
+    }
+  })
+
   .state('app.agencystatus', {
     url: '/agency/status',
     views: {
       'menuContent': {
         templateUrl: 'pages/agency/status.html',
+      }
+    }
+  })
+
+  .state('app.agencydata', {
+    url: '/agency/data',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/agency/data.html',
+        controller: 'agencyDataCtrl'
+      }
+    }
+  })
+
+  .state('app.agencyassignshelter', {
+    url: '/agency/assignshelter',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/agency/assignshelter.html',
       }
     }
   })

@@ -12,6 +12,10 @@
   color: #fff;
 }*/
 
+.agency-content {
+  height:45%;
+}
+
 .h4 {
   font-weight: 500;
 }
@@ -24,7 +28,7 @@
 
 .menu .scroll-content {
     z-index: 10;
-    background-color: #4d9a50;
+    background-color: #transparent;
     top: 100px;
 }
 
@@ -37,7 +41,7 @@ span.assign-button {
 }
 
 .lsidemenu > .list > ion-item.item.item-complex {
-    border-color: #6fb272;
+    border-color: rgba(255,255,255,0.1);
     padding-top: 5px;
     padding-bottom: 5px;
     background-color: transparent;
@@ -57,7 +61,7 @@ span.assign-button {
 
 ion-header-bar.bar-stable.menu-headerbar.bar.bar-header {
     border-color: #b2b2b2;
-    background-color: #4d9a50;
+    background-color: transparent;
     height: 100px;
 }
 
@@ -281,11 +285,48 @@ button.button.button-block.login {
 
 .home.createnew {
   width: 100%;
-  height: 50%;
-  display: table;
-  background-color: #64bf7e;
+  height: 20%;
+  display: block;
+  background-color: #324848;
   border-radius: 0px;
-  border-bottom: 3px solid #62b265;
+  background-image:url(../img/header-pages.jpg);
+  background-size: 100% auto;
+}
+
+ion-side-menu.menu.menu-left {
+    background-image: url(../img/side-menu.jpg);
+}
+
+.agency-content2 {
+  height: 57%;
+}
+
+span.welcomeheader.h2 {
+    position: absolute;
+    z-index: 1000;
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: 400;
+    width: 100%;
+    text-align: center;
+    top: 33%;
+  }
+
+.custbutton {
+  width: 80%;
+  display: block;
+  margin: auto;
+  text-align: center;
+  top: 36%;
+  position: relative;
+  background-color: #64bf67;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.custbutton > .home.center {
+  text-align: center;
+  display: block;
 }
 
 .home.viewclients {
@@ -318,12 +359,99 @@ button.button.button-block.login {
     float:left;
 }
 
+.home > .lnr {
+  display:block;
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.home.viewclients1 {
+  width: 33.3%;
+  height: 100%;
+  display: table;
+  background-color: #64bfbe;
+  border-radius: 0px;
+  float: left;
+  font-size: .7em;
+}
+
+.home.agencystatus1 {
+  width: 33.3%;
+  height: 100%;
+  display: table;
+  background-color: #64bfbe;
+  border-radius: 0px;
+  float:left;
+    font-size: .7em;
+}
+
+.home.viewclientss {
+  width: 50%;
+  height: 100%;
+  display: table;
+  background-color: #64bfbe;
+  border-radius: 0px;
+  float: left;
+  font-size: .7em;
+}
+
+.home.agencystatuss {
+  width: 50%;
+  height: 100%;
+  display: table;
+  background-color: #64bfbe;
+  border-radius: 0px;
+  float:left;
+    font-size: .7em;
+}
+
+span.lnr.lnr-cog, span.lnr.lnr-exit {
+  font-size: 20px;
+  display: block;
+  padding-bottom: 4px;
+}
+
+.home.datareports1 {
+  width: 33.4%;
+  height: 100%;
+  display: table;
+  background-color: #64bfbe;
+  border-radius: 0px;
+    font-size: .7em;
+    float:left;
+}
+
 .button-background {
   display: block;
-  height: 100%;
+  height: 23%;
   width:100%;
   background-color: #64bfbe;
 
+}
+
+.addservice2 {
+    min-height: 50%;
+    width: 80%;
+    height: 80%;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+}
+
+div.slider {
+    height: 100%;
+}
+
+
+.has-vispdatheader {
+  top: 40px;
+  margin-bottom: 50px;
+}
+
+label.item.item-input.item-stacked-label.vispdatinput {
+    padding: 5px 0px 5px 0px;
+    text-align: left;
 }
 
 a.home.center {
@@ -345,13 +473,29 @@ a.home.center {
 }
 
 .agency-image {
-  height: 200px;
+  height: 100%;
   overflow: hidden;
 }
 
+.agency-image3 {
+  width: 100%;
+  position: relative;
+}
+
+.agency-imagee {
+  height: 100%;
+  position: relative;
+}
+
 .agency-image2 {
-  height: 200px;
+  height: 100%;
   left: -30%;
+  position: relative;
+}
+
+.agency-image5 {
+  height: 100%;
+  overflow: hidden;
   position: relative;
 }
 
@@ -374,6 +518,20 @@ a.home.center {
   height: 80%;
 }
 
+.center {
+  height: 12%;
+  text-align: center;
+}
+
+.center > p {
+  margin-bottom: 0px;
+}
+
+.button-background2 {
+  height: 100%;
+  width: 100%
+}
+
 .hmis.createnew {
   width: 100%;
   height: 10%;
@@ -383,7 +541,7 @@ a.home.center {
 }
 
 .agency-content.scroll-content {
-  height: 80%;
+  height: 100%;
 }
 
 /*---------- .003 Home Page ----------*/
