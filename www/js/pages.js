@@ -137,7 +137,15 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     views: {
       'menuContent': {
         templateUrl: 'pages/agency/allclients.html',
-        controller: 'arunCtrl'
+      }
+    }
+  })
+
+  .state('app.agencyallagencies', {
+    url: '/agency/allagencies',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/coc/allAgencies.html',
       }
     }
   })
@@ -150,7 +158,7 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
       }
     }
   })
-  
+
   .state('app.agencydata', {
     url: '/agency/data',
     views: {

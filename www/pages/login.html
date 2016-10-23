@@ -1,4 +1,4 @@
-<ion-view hide-nav-bar="true">
+<ion-view hide-nav-bar="true" data-ng-controller="loginCtrl">
 <!--
   <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light">
     <div class="tabs">
@@ -23,6 +23,7 @@
               <input type="password" ng-model="loginData.password">
             </label>
               <button class="button button-block login" type="submit">Log in</button>
+              <span ng-show="errormsg">{{errormsg}}</span>
           </div>
         </form>
       </div>
