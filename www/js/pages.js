@@ -69,6 +69,7 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     views: {
       'menuContent': {
         templateUrl: 'pages/coc/allclients.html',
+        controller: 'arun2Ctrl'
       }
     }
   })
@@ -126,6 +127,7 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     views: {
       'menuContent': {
         templateUrl: 'pages/agency/allclients.html',
+        controller: 'arunCtrl'
       }
     }
   })
