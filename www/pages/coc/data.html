@@ -1,24 +1,51 @@
-<div class="home datavisual container" ng-controller="dataCtrl" style="overflow:scroll;">
-<div>
-  <div class="agency-half"><span class="data-header">{{myData.length}}</span>Open</div>
-  <div class="agency-half"><span class="data-header">{{500 - myData.length}}</span> Completed</div>
-</div>
-  <div class="row1 graphs">
-    <div id="chartone" class="halfwidth"></div>
+<ion-view view-title="Data Analysis">
+  <ion-pane>
+    <ion-content scroll="true">
+      <div class="home datavisual container">
+        <div>
+          <div class="agency-half"><span class="data-header">{{myData.length}}</span>Open</div>
+          <div class="agency-half"><span class="data-header">{{500 - myData.length}}</span> Completed</div>
+        </div>
+        
+        <div class="row1 graphs">
+          <div id="chartone" class="halfwidth"></div>
+          <div id="charttwo" class="halfwidth"></div>
+        </div>
 
-    <div id="charttwo" class="halfwidth"></div>
-  </div>
+        <div id="chartfour" class="smallergraph"></div>
 
+        <div class="row2 graphs">
+          <div id="chartthree" class="fullwidth"></div>
+        </div>
 
-  <div id="chartfour" class="smallergraph"></div>
-
-  <div class="row2 graphs">
-    <div id="chartthree" class="fullwidth"></div>
-  </div>
-
-  <div class="row2 graphs">
-    <div id="chartfive" class="fullwidth"></div>
-  </div>
-
-
-</div>
+        <div class="row2 graphs">
+          <div id="chartfive" class="fullwidth"></div>
+        </div>
+        
+        <div class="row2 graphs">
+          <div id="chartsix" class="fullwidth"></div>
+          <button ng-click="showHousing()">Housing</button>
+          <button ng-click="showMedical()">Medical</button>
+          <button ng-click="showEmployment()">Employment</button>
+          <button ng-click="showServices()">Services</button>
+        </div>
+        
+        <div class="row2 graphs">
+          <div id="chartseven" class="fullwidth"></div>
+          <button ng-click="showMonth()">Jan</button>
+          <button ng-click="showMonth()">Feb</button>
+          <button ng-click="showMonth()">Mar</button>
+          <button ng-click="showMonth()">Apr</button>
+          <button ng-click="showMonth()">May</button>
+          <button ng-click="showMonth()">Jun</button>
+          <button ng-click="showMonth()">Jul</button>
+          <button ng-click="showMonth()">Aug</button>
+          <button ng-click="showMonth()">Sep</button>
+          <button ng-click="showMonth()">Oct</button>
+          <button ng-click="showMonth()">Nov</button>
+          <button ng-click="showMonth()">Dec</button>
+        </div>
+      </div>
+    </ion-content>
+  </ion-pane>
+</ion-view>
