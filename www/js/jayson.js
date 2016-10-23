@@ -1,4 +1,4 @@
-function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $timeout, $cordovaCamera, $ionicPlatform) {
+function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $timeout, $cordovaCamera, $ionicModal ,$ionicPlatform) {
   $scope.client = {};
   var rootRef = firebase.database().ref();
   var arrRef = rootRef.child('JaysonSampleClient');
@@ -59,5 +59,26 @@ function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $t
     	});
     }
   };
+  $ionicModal.fromTemplateUrl('pages/agency/vispdatForm.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.vispdatmodal = modal;
+  });
+
+  // Triggered in the login modal to close it
+  $scope.closevispdatPanel = function() {
+    $scope.vispdatmodal.hide();
+  };
+
+  // Open the login modal
+  $scope.openvispdatPanel = function() {
+    $scope.vispdatmodal.show();
+  };
 };
-angular.module("SHARKZ").controller("jaysonCtrl", ["$scope", "$firebaseObject", "$firebaseArray", "$compile", "$http", "$timeout", "$cordovaCamera", "$ionicPlatform", jaysonCtrl]);
+function loginCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $timeout, $cordovaCamera, $ionicPlatform) {
+  $scope.loginform = function(){
+    console.log($scope.loginData.username);
+  }
+};
+angular.module("SHARKZ").controller("jaysonCtrl", ["$scope", "$firebaseObject", "$firebaseArray", "$compile", "$http", "$timeout", "$cordovaCamera", "$ionicModal", "$ionicPlatform", jaysonCtrl]),
+angular.module("SHARKZ").controller("loginCtrl", ["$scope", "$firebaseObject", "$firebaseArray", "$compile", "$http", "$timeout", "$cordovaCamera", "$ionicPlatform", loginCtrl]);
