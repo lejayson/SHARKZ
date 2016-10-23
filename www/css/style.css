@@ -43,9 +43,9 @@ span.assign-button {
     background-color: transparent;
 }
 
-ion-item.item.item-complex:last-child {
+/*ion-item.item.item-complex:last-child {
     border-bottom:0px;
-}
+}*/
 
 .item-complex .item-content, .item-radio .item-content {
   color: #fff;
@@ -198,6 +198,7 @@ p {
 
 .background-color-grey {
   background-color: #f9f9f9;
+  height: 100%;
 }
 
 /*---------- .002 Login Page ----------*/
@@ -837,4 +838,23 @@ p.message-content.ng-binding {
   font-size: 2.5em;
   display: block;
   padding-bottom: 5px;
+}
+
+.assignbutton {
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+
+.assignbutton > button  {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50px;
+  background-color: #64bf67;
+  color: #fff;
+}
+
+.assignbutton > .button.activated {
+  background-color: #455445;
+  border: 0px;
 }

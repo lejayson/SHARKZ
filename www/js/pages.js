@@ -74,6 +74,16 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     }
   })
 
+  .state('app.cocfunding', {
+    url: '/coc/funding',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/coc/funding.html'
+      }
+    }
+  })
+
+
   .state('app.cocshelters', {
     url: '/coc/shelters',
     views: {
@@ -147,6 +157,15 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
       'menuContent': {
         templateUrl: 'pages/agency/data.html',
         controller: 'agencyDataCtrl'
+      }
+    }
+  })
+
+  .state('app.agencyassignshelter', {
+    url: '/agency/assignshelter',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/agency/assignshelter.html',
       }
     }
   })
