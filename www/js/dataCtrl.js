@@ -268,7 +268,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       xkey: 'label',
       ykeys: ['value'],
       labels: ['quality'],
-      hideHover: true
+      hideHover: 'always'
     });
 
     $scope.graphservices = new Morris.Line({
@@ -299,7 +299,7 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       {label: "Available", value: Math.round(randnum)},
       {label: "Used", value: Math.round(100 - randnum)}
     ]
-    
+    /**
     $scope.graphfunds = new Morris.Donut({
       element : 'chartseven',
       data : datafunds,
@@ -307,8 +307,40 @@ function dataCtrl($scope, $timeout, $firebaseObject, $firebaseArray, $ionicSlide
       ykeys : ['value'],
       labels : ['%'],
       hideHover : true
+    }); **/
+    
+    var tmpone = Math.random();
+    var tmptwo = Math.random();
+    var tmpthree = Math.random();
+    $scope.graphservices = new Morris.Bar({
+      element: 'charteight',
+      data: [
+        { y: 'Medical', a: tmpone, b: 1 - tmpone },
+        { y: 'Housing', a: tmptwo, b: 1 - tmptwo },
+        { y: 'Food', a: tmpthree,  b: 1 - tmpthree }
+      ],
+      xkey: 'y',
+      ykeys: ['a', 'b'],
+      labels: ['Funding Available', 'Used Funding'],
+      stacked: true,
+      hideHover: 'always'
     });
 	});
+  
+  var datahous = [
+      {label : "2016-01", intake : 10, completed: 9},
+      {label : "2016-02", intake : 13, completed: 10},
+      {label : "2016-03", intake : 11, completed: 13},
+      {label : "2016-04", intake : 16, completed: 14},
+      {label : "2016-05", intake : 12, completed: 11},
+      {label : "2016-06", intake : 19, completed: 16},
+      {label : "2016-07", intake : 13, completed: 18},
+      {label : "2016-08", intake : 22, completed: 13},
+      {label : "2016-09", intake : 14, completed: 20},
+      {label : "2016-10", intake : 15, completed: 21},
+      {label : "2016-11", intake : 18, completed: 19},
+      {label : "2016-12", intake : 25, completed: 26}
+  ];
   
   var datahous = [
       {label : "2016-01", intake : 10, completed: 9},
