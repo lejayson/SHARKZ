@@ -96,6 +96,24 @@ function clientCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ioni
   $scope.openServicePanel = function() {
     $scope.housingmodal.show();
   };
+  
+  
+  // Create the login modal that we will use later
+  $ionicModal.fromTemplateUrl('pages/agency/setShelter.html', {
+    scope: $scope
+  }).then(function(modal) {
+    $scope.sheltermodal = modal;
+  });
+
+  // Triggered in the login modal to close it
+  $scope.closeSetShelterPanel = function() {
+    $scope.sheltermodal.hide();
+  };
+
+  // Open the login modal
+  $scope.openSetShelterPanel = function() {
+    $scope.sheltermodal.show();
+  };
 
   $ionicModal.fromTemplateUrl('pages/agency/addEmployment.html', {
     scope: $scope
