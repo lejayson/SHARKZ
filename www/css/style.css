@@ -12,6 +12,21 @@
   color: #fff;
 }*/
 
+.fundingdivs {
+  width:100%;
+  display:block;
+  background-color: #64bfbe;
+  color: #fff !important;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.fundingdivs > p {
+  color: #eee;
+}
+
+.fundingdivs > h3 {
+  color: #1c6b6a;
+}
 .agency-content {
   height:45%;
 }
