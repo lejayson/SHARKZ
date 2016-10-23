@@ -61,7 +61,7 @@
                   <div class="client-fulllist">
                     <ion-list ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
                       <ion-item class="client-list">
-
+<a ng-click="clickDetail($index)">
                           <img class="float-left" src="img\placeholder.png">
 
                           <div class="client-detail">
@@ -70,8 +70,8 @@
                             <span class="client-score"><b>VISPDAT Score</b> {{ v.score }}</span>
                             <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>
                             <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
-                            <button ng-click="clickDetail($index)">Detail</button>
-                          </div>
+
+                          </div></a>
                       </ion-item>
                     </ion-list>
                   </div>
