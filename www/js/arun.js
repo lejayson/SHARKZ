@@ -1,4 +1,5 @@
-function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $state, $ionicModal, $ionicSlideBoxDelegate, $ionicScrollDelegate){
+function arunCtrl($scope, $http, $filter, $firebaseObject, $firebaseArray, $firebase, $state, $ionicModal, $ionicSlideBoxDelegate, $ionicScrollDelegate){
+
 
   $scope.filterOptions = [{"Name": "Veteran", "VeteranStatus": 1}, {"Name": "Non-Veteran", "VeteranStatus": 0}, {"Name": "ALL", "VeteranStatus": ""}];
   $scope.sortOptions1 = ["First_Name", "Last_Name"];
@@ -102,4 +103,4 @@ function arunCtrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $st
 
 
 }
-angular.module("SHARKZ").controller("arunCtrl", ["$scope", "$http", "$firebaseObject", "$firebaseArray", "firebase", "$state", "$ionicModal", "$ionicSlideBoxDelegate", "$ionicScrollDelegate", arunCtrl]);
+angular.module("SHARKZ").controller("arunCtrl", ["$scope", "$http", "$filter", "$firebaseObject", "$firebaseArray", "firebase", "$state", "$ionicModal", "$ionicSlideBoxDelegate", "$ionicScrollDelegate", arunCtrl]);

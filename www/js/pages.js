@@ -90,6 +90,14 @@ angular.module('SHARKZ', ['ionic', 'starter.controllers', 'firebase', 'ngCordova
     }
   })
 
+  .state('app.cocfunding', {
+    url: '/coc/funding',
+    views: {
+      'menuContent': {
+        templateUrl: 'pages/coc/funding.html',
+      }
+    }
+  })
 
   .state('app.agencyhome', {
     url: '/agency/home',
