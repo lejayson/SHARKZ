@@ -38,7 +38,7 @@
                 <div class="row2 graphs">
                   <div id="chartfive" class="fullwidth"></div>
                 </div>
-                
+
                 <div class="row2 graphs">
                   <div id="chartseven" class="fullwidth"></div>
                   <button ng-click="showMonth()">Jan</button>
@@ -62,15 +62,15 @@
           </ion-slide>
 
           <ion-slide>
+            <ion-content scroll="true" class="container">
               <div class="row2 graphs">
                 <h2>Data Verification Quality</h2>
-                <div id="chartfive" class="fullwidth"></div>
               </div>
-              
+
               <div class="row2 graphs">
                 <div id="charteight" class="fullwidth"></div>
               </div>
-              
+
               <!--
               <div class="row2 graphs">
                 <h2>Funding Use %</h2>
@@ -88,20 +88,21 @@
                 <button ng-click="showMonth()">Nov</button>
                 <button ng-click="showMonth()">Dec</button>
               </div> -->
+            </ion-content>
           </ion-slide>
 
           <ion-slide>
-
+<ion-content scroll="true" class="container">
             <div class="row">
               <div class="agency-half"><span class="data-header">{{myData.length}}</span>Open</div>
               <div class="agency-half"><span class="data-header">{{500 - myData.length}}</span> Completed</div>
             </div>
-            
-            
-            
+
+
+
             <div class="row2 graphs">
 
-              <h2>Service Intake and Completion</h2>
+              <h2>Service Intake and Completion</h2> </br>
 
               <div id="chartsix" class="fullwidth"></div>
               <button ng-click="showHousing()">Housing</button>
@@ -109,7 +110,7 @@
               <button ng-click="showEmployment()">Employment</button>
               <button ng-click="showServices()">Services</button>
             </div>
-
+</ion-content>
           </ion-slide>
 
 

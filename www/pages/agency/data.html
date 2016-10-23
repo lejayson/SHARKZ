@@ -31,12 +31,12 @@
                 </div>
 
                 <div class="">
-                  <h3>Veteran Status</h3>
+                  <h3 class="half">Veteran Status</h3><h3 class="half"> </h3>
                   <div id="achartfour" class="half"></div>
                 </div>
 
 
-                
+
 
 
               </div>
@@ -46,28 +46,27 @@
           </ion-slide>
 
           <ion-slide>
-
+<ion-content scroll="true" class="container">
                 <div class="row2 graphs">
                   <h2>Data Verification Quality</h2>
                   <div id="achartfive" class="fullwidth"></div>
                 </div>
-                
-                <div class="row2 graphs">
-                  <div id="charteight" class="fullwidth"></div>
-                </div>
-                
+
+
                 <div class="row2 graphs">
                   <h2>Breakdown by Military Branch</h2>
                   <div id="achartthree" class="fullwidth"></div>
                 </div>
+              </ion-content>
           </ion-slide>
 
           <ion-slide>
+            <ion-content scroll="true" class="container">
             <div class="row">
               <div class="col"><div class="agency-half"><span class="data-header">{{agencyCases}}</span>Open Cases</div></div>
               <div class="col"><div class="agency-half"><span class="data-header">{{myData.length - agencyCases}}</span> Completed</div></div>
             </div>
-
+</ion-content>
           </ion-slide>
 
 
