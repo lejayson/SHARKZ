@@ -121,6 +121,7 @@ h1.title.menu-title {
   border: 0px;
   background-color: #f8f8f8;
   color: #666;
+  width: 100%;
 }
 
 .client-status select option {

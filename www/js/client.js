@@ -18,7 +18,6 @@ function clientCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ioni
     $scope.meditems = $firebaseArray(MedicalArrRef);
 
     var year = dobString.slice(-4);
-
     $scope.clientAge =  (2016 - parseInt(year,10));
     var splitDate = obj.Date_Created.split(' ');
     repDate = splitDate[0].split('/').join('.');

@@ -14,6 +14,7 @@ function shelterCtrl($scope, $state, $firebaseObject, $firebaseArray, $firebase)
   $scope.agencies = $firebaseArray(arrRef);
 
   $scope.agencies.$loaded().then(function(pages) {
+    $scope.agencies = displaypic($scope.agencies);
     $scope.pages = toPages($scope.agencies, $scope.itemPerPage);
   });
 
@@ -34,6 +35,9 @@ function shelterCtrl($scope, $state, $firebaseObject, $firebaseArray, $firebase)
   $scope.increasePage = function(page, max) {
     return increase(page, max);
     console.log(page);
+  }
+  $scope.assign = function(agency){
+    console.log(agency);
   }
 
 }
