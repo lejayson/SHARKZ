@@ -1,45 +1,69 @@
-function setShelterCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ionicModal, $ionicSlideBoxDelegate ,$compile, $http, $timeout) {
-  var rootRef = firebase.database().ref();
-  var arrRef = rootRef.child('Assigned_bed');
+function setShelterCtrl($scope, $stateParams, $firebaseObject, $firebaseArray, $ionicModal, $ionicSlideBoxDelegate ,$compile, $http, $timeout, firebase) {
+  
   var tblRef;
   var arrVariable;
-  $scope.Shelters = $firebaseArray(arrRef);
   
-  $scope.setShelter = function(id, clientid){
+  
+  $scope.filterOptions = [{"Name": "Full", "status": "full"}, {"Name": "Availible", "status": "available"}, {"Name": "Closed", "status": "closed"}, {"Name": "ALL", "status": ""}];
+  $scope.sortOptions1 = ["First_Name", "Last_Name"];
+  $scope.volunteers = [];
+  $scope.propertyName = 'Agency';
+  $scope.reverse = false;
+  $scope.itemPerPage = 8;
+  $scope.currentPage1 = 0;
+
+  //Firebase method
+  var rootRef = firebase.database().ref();
+  var arrRef = rootRef.child('agencies');
+  $scope.agencies = $firebaseArray(arrRef);
+
+  $scope.agencies.$loaded().then(function(pages) {
+    $scope.agencies = displaypic($scope.agencies);
+    $scope.pages = toPages($scope.agencies, $scope.itemPerPage);
+  });
+
+  $scope.sortBy = function(propertyName) {
+    if ($scope.reverse == true){
+      $scope.reverse = false;
+    }
+    else {
+      $scope.reverse = true;
+    }
+    $scope.propertyName = propertyName;
+  };
+
+  $scope.decreasePage = function(page) {
+    return decrease(page);
+    console.log(page);
+  }
+  $scope.increasePage = function(page, max) {
+    return increase(page, max);
+    console.log(page);
+  }
+  $scope.assign = function(agency){
+    console.log(agency);
+  }
+  
+  $scope.setShelter = function(aname){
     
-    var privCMRef = arrRef.orderByChild("Bed_ID").equalTo(id);
+    var privCMRef = arrRef.orderByChild("Agency").equalTo(aname);
     
     $scope.privCM = $firebaseArray(privCMRef);
     
     $scope.privCM.$loaded().then(function() {
-      $scope.privCM[0].User_ID = clientid;
-      $scope.privCM[0].occupy = 1;
+    
+      $scope.privCM[0].num_beds = $scope.privCM[0].num_beds - 1;
       $scope.privCM.$save(0).then(function(ref) {
         ref.key === $scope.privCM[0].$id; // true
       });
+    
+      
+      var tmpdata = {"Service": $scope.privCM[0].Agency, "Description": "Hours of Operation: " + $scope.privCM[0].hours_ops};
+      $scope.houseitems.push(tmpdata);
+      $scope.closeSetShelterPanel();
     });
-    
-    $scope.closeSetShelterPanel;
-    
-    console.log(id + " " + clientid);
   }
   
-  $scope.unsetShelter = function(id, clientid){
-    var privCMRef = arrRef.orderByChild("Bed_ID").equalTo(id);
-    
-    $scope.privCM = $firebaseArray(privCMRef);
-    
-    $scope.privCM.$loaded().then(function() {
-      $scope.privCM[0].User_ID = 0;
-      $scope.privCM[0].occupy = 0;
-      $scope.privCM.$save(0).then(function(ref) {
-        ref.key === $scope.privCM[0].$id; // true
-      });
-    });
-    
-    $scope.closeSetShelterPanel;
-    
-  }
 };
 
-angular.module("SHARKZ").controller("setShelterCtrl", ["$scope", "$stateParams", "$firebaseObject", "$firebaseArray", "$ionicModal", "$ionicSlideBoxDelegate", "$compile", "$http", "$timeout", setShelterCtrl]);
+angular.module("SHARKZ").controller("setShelterCtrl", ["$scope", "$stateParams", "$firebaseObject", "$firebaseArray", "$ionicModal", "$ionicSlideBoxDelegate", "$compile", "$http", "$timeout", "firebase", setShelterCtrl]);

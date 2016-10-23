@@ -14,7 +14,7 @@
   </div>
 
   <ion-pane>
-    <ion-content scroll="false" class="has-tabs-top">
+    <ion-content scroll="true" class="has-tabs-top">
 
       <div class="homepage-slider">
         <ion-slide-box on-slide-changed="slideHasChanged($index)" slide-interval="1000" does-continue="true" show-pager="false">
@@ -23,10 +23,6 @@
 
             <ion-content scroll="true">
               <div class="home datavisual container">
-                <div class="row">
-                  <div class="col"><div class="agency-half"><span class="data-header">{{agencyCases}}</span>Open Cases</div></div>
-                  <div class="col"><div class="agency-half"><span class="data-header">{{myData.length - agencyCases}}</span> Completed</div></div>
-                </div>
 
                 <div class="">
                   <div id="achartone" class="half"></div>
@@ -59,8 +55,10 @@
           </ion-slide>
 
           <ion-slide>
-
-            reports
+            <div class="row">
+              <div class="col"><div class="agency-half"><span class="data-header">{{agencyCases}}</span>Open Cases</div></div>
+              <div class="col"><div class="agency-half"><span class="data-header">{{myData.length - agencyCases}}</span> Completed</div></div>
+            </div>
 
           </ion-slide>
 
