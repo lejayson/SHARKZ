@@ -1,4 +1,4 @@
-function arun2Ctrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $state, $ionicSlideBoxDelegate, $ionicScrollDelegate){
+function arun2Ctrl($scope, $http, $filter, $firebaseObject, $firebaseArray, $firebase, $state, $ionicSlideBoxDelegate, $ionicScrollDelegate){
 
   $scope.filterOptions = [{"Name": "Veteran", "VeteranStatus": 1}, {"Name": "Non-Veteran", "VeteranStatus": 0}, {"Name": "ALL", "VeteranStatus": ""}];
   $scope.sortOptions1 = ["First_Name", "Last_Name"];
@@ -24,6 +24,7 @@ function arun2Ctrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $s
       $scope.Allpages = mergeTable($scope.ppclients, $scope.spclients);
       $scope.Allpages = getAge($scope.Allpages);
       $scope.Allpages = setVet($scope.Allpages);
+      $scope.Allpages = $filter('orderBy')($scope.Allpages, 'Score', true);
       $scope.pages = toPages($scope.Allpages, $scope.itemPerPage);
     });
   });
@@ -90,4 +91,4 @@ function arun2Ctrl($scope, $http, $firebaseObject, $firebaseArray, $firebase, $s
   }
 
 }
-angular.module("SHARKZ").controller("arun2Ctrl", ["$scope", "$http", "$firebaseObject", "$firebaseArray", "firebase", "$state", "$ionicSlideBoxDelegate", "$ionicScrollDelegate", arun2Ctrl]);
+angular.module("SHARKZ").controller("arun2Ctrl", ["$scope", "$http", "$filter", "$firebaseObject", "$firebaseArray", "firebase", "$state", "$ionicSlideBoxDelegate", "$ionicScrollDelegate", arun2Ctrl]);
