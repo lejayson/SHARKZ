@@ -77,7 +77,7 @@ h1.title.menu-title {
 .client-list {
   margin-bottom: 15px;
 border: 0px;
-border-radius: 5px;
+border-radius: 5px 0px 5px 5px;
 }
 
 .float-left {
@@ -437,6 +437,16 @@ a.home.center {
 
 .row.home-icons.three {
   padding-bottom: 25px;
+}
+
+.confirm-assign {
+  height: 100%;
+  float:right;
+  background-color: #fff;
+  border: 1px solid #64bf67;
+  color: #64bf67;
+  padding: 5px;
+  margin-left: 5px;
 }
 
 
@@ -931,4 +941,32 @@ p.program-name2 {
   bottom: 0px;
   border: 0px;
   padding: 0px;
+}
+
+.assignbutton {
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+
+.assignbutton > button  {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50px;
+  background-color: #64bf67;
+  color: #fff;
+}
+
+.assignbutton > .button.activated {
+  background-color: #455445;
+  border: 0px;
+}
+
+.client-casemanager {
+  background-color: #64bf67;
+  border: 0px;
+  color: #fff;
+  padding: 5px;
+  float:right;
+  width: 30px;
 }

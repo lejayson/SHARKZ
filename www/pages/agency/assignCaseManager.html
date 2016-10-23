@@ -1,13 +1,18 @@
-<ion-modal-view >
-  <ion-header-bar>
-  <h1 class="title">Case Manager</h1>
-  <div class="buttons">
-    <button class="button button-clear" ng-click="closeCaseManager()">Close</button>
-  </div>
-  </ion-header-bar>
-  <ion-content>
-    <ul ng-repeat="cm in casemanagers">
-      <li>{{cm.First_Name}} {{cm.Last_Name}} {{cm.CM_ID}} {{cm.Agency}}  <button ng-click="assignCM(cm.First_Name, cm.Last_Name)">Assign to Client</button></li>
+<ion-modal-view hide-nav-bar="true" class="addservice" scroll="false">
+  <ion-content class="addservicemodal" scroll="true">
+
+<div class="container modal-server">
+    <ul>
+      <li ng-repeat="cm in casemanagers">
+
+        <div class="service-button">
+          <button class="confirm-assign" ng-click="assignCM(cm.First_Name, cm.Last_Name)">Assign to Client</button>
+          <p class="program-name2">{{cm.First_Name}} {{cm.Last_Name}}</p><p>{{cm.CM_ID}} {{cm.Agency}}</p>
+
+        </div>
+      </li>
     </ul>
+</div>
   </ion-content>
+<button class="closewindow" ng-click="closeCaseManager()">Close Window</button>
 </ion-modal-view>
