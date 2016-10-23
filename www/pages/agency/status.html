@@ -1,0 +1,57 @@
+<ion-view view-title="Agency Status">
+  <ion-nav-bar class="green-nav">
+    <ion-nav-buttons side="left">
+      <button menu-toggle="left" class="green-nav button button-icon icon ion-navicon"></button>
+    </ion-nav-buttons>
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+
+
+  <ion-pane>
+    <ion-content scroll="false" class="">
+
+      <div class="casefiles-slider" data-ng-controller="arunCtrl">
+
+
+
+            <ion-content scroll="true" delegate-handle="messages">
+              <div class="container clientinfo">
+
+
+
+                <!-- Table generation -->
+                <div>
+
+
+                  <div class="client-fulllist">
+                    <ion-list ng-repeat="v in pages[currentPage1] | filter: search | orderBy : propertyName : reverse | filter: selectedOptions">
+                      <ion-item class="client-list">
+
+                          <img class="float-left" src="img\placeholder.png">
+
+                          <div class="client-detail">
+                            <span class="client-name">{{ v.First_Name }} {{ v.Last_Name }}</span>
+                            <span class="client-age"><b>Age</b> {{ v.age }} {{ v.vet }}</span>
+                            <span class="client-score"><b>VISPDAT Score</b> {{ v.score }}</span>
+                            <span class="client-agency">{{ v.Agencies }}  <b>ID</b> {{ v.UserID }}</span>
+                            <span class="client-assigned"><b>Assigned to</b> Jane Doe</span>
+                          </div>
+                      </ion-item>
+                    </ion-list>
+                  </div>
+                  <button ng-click="currentPage1 = decreasePage(currentPage1)"><<</button> {{currentPage1 + 1}}/{{pages.length}}
+                  <button ng-click="currentPage1 = increasePage(currentPage1, pages.length)">>></button>
+
+                </div>
+              </div>
+            </ion-content>
+
+
+
+        </ion-slide-box>
+        </div>
+
+    </ion-content>
+  </ion-pane>
+</ion-view>
