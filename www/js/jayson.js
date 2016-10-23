@@ -1,19 +1,17 @@
 function jaysonCtrl($scope, $firebaseObject, $firebaseArray, $compile, $http, $timeout, $cordovaCamera, $ionicModal ,$ionicPlatform) {
   $scope.client = {};
   var rootRef = firebase.database().ref();
-  var arrRef = rootRef.child('JaysonSampleClient');
+  var arrRef = rootRef.child('simpleClient');
   $scope.testvar = $firebaseArray(arrRef);
   $scope.addClient = function () {
-    $scope.testvar.$add({name: $scope.client.name, gender:$scope.client.gender}).then(function(ref) {});
+    $scope.testvar.$add({name: $scope.client.name, gender:$scope.client.gender}).then(function(ref) {
+      var storageRef = firebase.storage().ref();
+      var uploadRef = storageRef.child(ref.key+'.jpg');
+
+      uploadRef.put($scope.picBLOB).then(function(ret){console.log("success")}, function(error){console.log("failed: " + error)});
+    });
     $scope.client.name = null;
-  }
-
-  $scope.addClient = function() {
-
-    var storageRef = firebase.storage().ref();
-    var uploadRef = storageRef.child('PUTSOMETHINGHEREJAYSON.jpg');
-
-    uploadRef.put($scope.picBLOB).then(function(ret){console.log("success")}, function(error){console.log("failed: " + error)});
+    $state.go("app.home");
   }
 
 
